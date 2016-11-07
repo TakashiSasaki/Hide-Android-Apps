@@ -5,18 +5,41 @@
     <title>Hide Android Apps</title>
     <script type="text/javascript">
     function updateDisabledPackages(){
-        var element = document.getElementById("disabled_packages");
-        element.textContent = "abc";
+        var script_element = document.createElement("script");
+        script_element.src = "/?disabled_packages=1&callback=callbackDisabledPackages";
+        document.body.appendChild(script_element);
     }
+
+    function callbackDisabledPackages(json_object){
+        var div_element = document.getElementById("disabled_packages");
+        while(div_element.firstChild) {
+            div_element.removeChild(div_element.firstChild);
+        }
+        var table_element = document.createElement("table");
+        for(var k in json_object) {
+            var tr_element = document.createElement("tr");
+            var td_element_k = document.createElement("td");
+            td_element_k.textContent = k;
+            tr_element.appendChild(td_element_k);
+            var td_element_v = document.createElement("td");
+            td_element_v.textContent = json_object[k];
+            tr_element.appendChild(td_element_v);
+            table_element.appendChild(tr_element);
+        }
+        div_element.appendChild(table_element);
+    }
+
     function updateUninstalledPackages(){
         var element = document.getElementById("uninstalled_packages");
         element.textContent = "def";
     }
+
     function updateProp(){
-        var element = document.createElement("script");
-        element.src = "/?prop=1&callback=callbackProp";
-        document.body.appendChild(element);
+        var script_element = document.createElement("script");
+        script_element.src = "/?prop=1&callback=callbackProp";
+        document.body.appendChild(script_element);
     }
+
     function callbackProp(json_object){
         var table_element = document.createElement("table");
         for (var k in json_object) {
@@ -32,8 +55,8 @@
             table_element.appendChild(tr_element);
         }
         var div_element = document.getElementById("prop");
-        for (var i = 0; i<div_element.childNodes; ++i) {
-            div_element.removeChild(div_element.childNodes[i]);
+        while(div_element.firstChild) {
+            div_element.removeChild(div_element.firstChild);
         }
         div_element.appendChild(table_element);
     }
