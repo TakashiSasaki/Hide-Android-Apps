@@ -1,8 +1,11 @@
 import http.server
+import json
 import threading
 import time
 import urllib.parse
 import webbrowser
+
+import main
 
 
 class HideAndroidAppsRequestHandler(http.server.SimpleHTTPRequestHandler):
@@ -10,12 +13,23 @@ class HideAndroidAppsRequestHandler(http.server.SimpleHTTPRequestHandler):
         request = urllib.parse.urlparse(self.path)
         query = request.query
         params = urllib.parse.parse_qs(query)
-        body = str(params)
-        self.send_response(200)
-        self.send_header('Content-type', 'text/html; charset=utf-8')
-        self.send_header('Content-length', len(body))
-        self.end_headers()
-        self.wfile.write(body.encode())
+        body = None
+        if "prop" in params.keys():
+            adb = main.Adb()
+            prop = adb.getProp()
+            json_string = json.dumps(prop)
+            callback_function_name = params["callback"][0]
+            body = callback_function_name + "(" + json_string + ");"
+
+        if body is not None:
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html; charset=utf-8')
+            self.send_header('Content-length', len(body))
+            self.end_headers()
+            self.wfile.write(body.encode())
+
+        http.server.SimpleHTTPRequestHandler.do_GET(self)
+
 
 class HideAndroidAppsHttpServer(http.server.HTTPServer):
     def __init__(self):
@@ -30,7 +44,7 @@ class HideAndroidAppsHttpServer(http.server.HTTPServer):
 
 def openBrowserThread():
     time.sleep(1)
-    webbrowser.open("http://localhost:10000/?a=b")
+    webbrowser.open("http://localhost:10000/")
 
 
 if __name__ == "__main__":

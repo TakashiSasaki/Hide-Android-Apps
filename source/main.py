@@ -1,4 +1,6 @@
-import os, subprocess, re
+import os
+import re
+import subprocess
 
 KUSO_AU = "https://docs.google.com/spreadsheets/d/1fgjgo91icfwia12ozOj67etb2ubi10bHM9VDoFeVgxY/pub?gid=11078667&single=true&output=csv"
 KUSO_SONY = "https://docs.google.com/spreadsheets/d/1fgjgo91icfwia12ozOj67etb2ubi10bHM9VDoFeVgxY/pub?gid=309729536&single=true&output=csv"
@@ -100,6 +102,21 @@ class Adb():
                 pass
         return process_names
 
+    def getProp(self):
+        lines = self.exec(["shell", "getprop"])
+        p = re.compile("\[(\S+)\]:\s\[(\S+)\]")
+        prop = dict()
+        for line in lines:
+            try:
+                m = p.match(line)
+                if m is None:
+                    continue
+                else:
+                    prop[m.group(1)] = m.group(2)
+            except Exception as e:
+                pass
+        return prop
+
     def testNumberOfPackages(self):
         n_all_installed = len(self.listPackages())
         n_all_uninstalled = len(self.listUninstalledPackages())
@@ -154,6 +171,9 @@ def fetchPackageNames(url):
 
 if __name__ == "__main__":
     adb = Adb()
+    print(adb.getProp())
+    exit()
+
     disabled_packages = adb.listDisabledPackages()
     for x in disabled_packages:
         adb.enablePackage(x)

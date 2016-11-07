@@ -3,6 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Hide Android Apps</title>
+    <script type="text/javascript">
+    function updateDisabledPackages(){
+        var element = document.getElementById("disabled_packages");
+        element.textContent = "abc";
+    }
+    function updateUninstalledPackages(){
+        var element = document.getElementById("uninstalled_packages");
+        element.textContent = "def";
+    }
+    function updateProp(){
+        var element = document.createElement("script");
+        element.src = "/?prop=1&callback=callbackProp";
+        document.body.appendChild(element);
+    }
+    function callbackProp(json_object){
+        var table_element = document.createElement("table");
+        for (var k in json_object) {
+            var text_node_1 = document.createTextNode(k);
+            var text_node_2 = document.createTextNode(json_object[k]);
+            var td_element_1 = document.createElement("td");
+            td_element_1.appendChild(text_node_1);
+            var td_element_2 = document.createElement("td");
+            td_element_2.appendChild(text_node_2);
+            var tr_element = document.createElement("tr");
+            tr_element.appendChild(td_element_1);
+            tr_element.appendChild(td_element_2);
+            table_element.appendChild(tr_element);
+        }
+        var div_element = document.getElementById("prop");
+        for (var i = 0; i<div_element.childNodes; ++i) {
+            div_element.removeChild(div_element.childNodes[i]);
+        }
+        div_element.appendChild(table_element);
+    }
+
+    </script>
 </head>
 <body>
 <h1>Disabled packages
@@ -18,16 +54,9 @@
 <div id="uninstalled_packages">
 
 </div>
-<script>
-    function updateDisabledPackages(){
-        var element = document.getElementById("disabled_packages");
-        element.textContent = "abc";
-    }
-    function updateUninstalledPackages(){
-        var element = document.getElementById("uninstalled_packages");
-        element.textContent = "def";
-    }
-
-</script>
+<h1>prop
+    <button onclick="updateProp()">update</button>
+</h1>
+<div id="prop"></div>
 </body>
 </html>
