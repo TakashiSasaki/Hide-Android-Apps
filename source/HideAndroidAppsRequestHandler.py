@@ -1,12 +1,21 @@
 import http.server
 import threading
 import time
+import urllib.parse
 import webbrowser
 
 
 class HideAndroidAppsRequestHandler(http.server.SimpleHTTPRequestHandler):
-    pass
-
+    def do_GET(self):
+        request = urllib.parse.urlparse(self.path)
+        query = request.query
+        params = urllib.parse.parse_qs(query)
+        body = str(params)
+        self.send_response(200)
+        self.send_header('Content-type', 'text/html; charset=utf-8')
+        self.send_header('Content-length', len(body))
+        self.end_headers()
+        self.wfile.write(body.encode())
 
 class HideAndroidAppsHttpServer(http.server.HTTPServer):
     def __init__(self):
@@ -21,7 +30,7 @@ class HideAndroidAppsHttpServer(http.server.HTTPServer):
 
 def openBrowserThread():
     time.sleep(1)
-    webbrowser.open("http://localhost:10000/")
+    webbrowser.open("http://localhost:10000/?a=b")
 
 
 if __name__ == "__main__":

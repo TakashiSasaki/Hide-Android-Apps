@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hide Android Apps</title>
+</head>
+<body>
+<h1>Disabled packages
+    <button onclick="updateDisabledPackages()">update</button>
+</h1>
+<div id="disabled_packages">
+
+</div>
+
+<h1>Uninstalled (hidden) packages
+    <button onclick="updateUninstalledPackages()">update</button>
+</h1>
+<div id="uninstalled_packages">
+
+</div>
+<script>
+    function updateDisabledPackages(){
+        var element = document.getElementById("disabled_packages");
+        element.textContent = "abc";
+    }
+    function updateUninstalledPackages(){
+        var element = document.getElementById("uninstalled_packages");
+        element.textContent = "def";
+    }
+
+</script>
+</body>
+</html>
