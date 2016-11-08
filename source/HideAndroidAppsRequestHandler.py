@@ -25,6 +25,10 @@ class HideAndroidAppsRequestHandler(http.server.SimpleHTTPRequestHandler):
             disabled_packages = adb.listDisabledPackages()
             json_string = json.dumps(disabled_packages)
 
+        if "enabled_packages" in params.keys():
+            adb = Adb.Adb()
+            json_string = json.dumps(adb.listEnabledPackages())
+
         if "uninstalled_packages" in params.keys():
             adb = Adb.Adb()
             uninstalled_packages = adb.listUninstalledPackages()
