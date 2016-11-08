@@ -1,5 +1,6 @@
 import http.server
 import json
+import threading
 import time
 import urllib.parse
 import webbrowser
@@ -40,6 +41,7 @@ class HideAndroidAppsRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-type', 'text/html; charset=utf-8')
             self.send_header('Content-length', len(body))
+            self.send_header("Cache-Control", "max-age=0")
             self.end_headers()
             self.wfile.write(body.encode())
         else:
@@ -63,7 +65,7 @@ def openBrowserThread():
 
 
 if __name__ == "__main__":
-    # threading.Thread(target=openBrowserThread).start()
+    threading.Thread(target=openBrowserThread).start()
     hide_android_apps_http_server = HideAndroidAppsHttpServer()
     while hide_android_apps_http_server.toBeShutdown is False:
         hide_android_apps_http_server.handle_request()

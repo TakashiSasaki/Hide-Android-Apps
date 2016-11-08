@@ -2,6 +2,10 @@ function updateProp(){
     var script_element = document.createElement("script");
     script_element.src = "/?prop=1&callback=callbackProp";
     document.body.appendChild(script_element);
+    var div_element = document.getElementById("prop");
+    while(div_element.firstChild) {
+        div_element.removeChild(div_element.firstChild);
+    }
 }
 
 function callbackProp(json_object){
@@ -19,8 +23,5 @@ function callbackProp(json_object){
         table_element.appendChild(tr_element);
     }
     var div_element = document.getElementById("prop");
-    while(div_element.firstChild) {
-        div_element.removeChild(div_element.firstChild);
-    }
     div_element.appendChild(table_element);
 }

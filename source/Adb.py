@@ -171,7 +171,7 @@ def fetchPackageNames(url):
 
 if __name__ == "__main__":
     adb = Adb()
-    print(adb.getProp())
+    adb.testNumberOfPackages()
     exit()
 
     disabled_packages = adb.listDisabledPackages()

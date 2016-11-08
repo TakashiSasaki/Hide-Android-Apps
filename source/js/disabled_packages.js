@@ -1,4 +1,8 @@
 function updateDisabledPackages(){
+    var div_element = document.getElementById("disabled_packages");
+    while(div_element.firstChild) {
+        div_element.removeChild(div_element.firstChild);
+    }
     var script_element = document.createElement("script");
     script_element.src = "/?disabled_packages=1&callback=callbackDisabledPackages";
     document.body.appendChild(script_element);
@@ -6,9 +10,6 @@ function updateDisabledPackages(){
 
 function callbackDisabledPackages(json_object){
     var div_element = document.getElementById("disabled_packages");
-    while(div_element.firstChild) {
-        div_element.removeChild(div_element.firstChild);
-    }
     var table_element = document.createElement("table");
     for(var k in json_object) {
         var tr_element = document.createElement("tr");
