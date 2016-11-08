@@ -5,6 +5,12 @@
     <title>Hide Android Apps</title>
 </head>
 <body>
+<h1>Summary
+    <button onclick="updateAll()">update</button>
+</h1>
+<label>model <input id="model" placeholder="model"/></label>
+<label>processes <input id="number_of_processes" placeholder="number of processes"></label>
+
 <h1>Processes
     <button onclick="updateProcesses()">update</button>
 </h1>
@@ -35,6 +41,7 @@
 </h1>
 
 <div id="prop"></div>
+<script src="/js/update_all.js"></script>
 <script src="/js/prop.js"></script>
 <script src="/js/uninstalled_packages.js"></script>
 <script src="/js/disabled_packages.js"></script>

@@ -22,4 +22,5 @@ function callbackProcesses(json_object){
         table_element.appendChild(tr_element);
     }
     div_element.appendChild(table_element);
+    document.getElementById("number_of_processes").value = json_object.length;
 }
