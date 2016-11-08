@@ -1,6 +1,5 @@
 import http.server
 import json
-import threading
 import time
 import urllib.parse
 import webbrowser
@@ -30,6 +29,11 @@ class HideAndroidAppsRequestHandler(http.server.SimpleHTTPRequestHandler):
             uninstalled_packages = adb.listUninstalledPackages()
             json_string = json.dumps(uninstalled_packages)
 
+        if "processes" in params.keys():
+            adb = Adb.Adb()
+            processes = adb.listProcesses()
+            json_string = json.dumps(processes)
+
         if json_string is not None:
             callback_function_name = params["callback"][0]
             body = callback_function_name + "(" + json_string + ");"
@@ -55,11 +59,11 @@ class HideAndroidAppsHttpServer(http.server.HTTPServer):
 
 def openBrowserThread():
     time.sleep(1)
-    webbrowser.open("http://localhost:10000/")
+    webbrowser.open("http://localhost:10000/html/index.html")
 
 
 if __name__ == "__main__":
-    threading.Thread(target=openBrowserThread).start()
+    # threading.Thread(target=openBrowserThread).start()
     hide_android_apps_http_server = HideAndroidAppsHttpServer()
     while hide_android_apps_http_server.toBeShutdown is False:
         hide_android_apps_http_server.handle_request()

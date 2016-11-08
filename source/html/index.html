@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hide Android Apps</title>
+</head>
+<body>
+<h1>Processes
+    <button onclick="updateProcesses()">update</button>
+</h1>
+<div id="processes">
+
+</div>
+<h1>Disabled packages
+    <button onclick="updateDisabledPackages()">update</button>
+</h1>
+<div id="disabled_packages">
+
+</div>
+
+<h1>Uninstalled (hidden) packages
+    <button onclick="updateUninstalledPackages()">update</button>
+</h1>
+<div id="uninstalled_packages">
+
+</div>
+<h1>prop
+    <button onclick="updateProp()">update</button>
+</h1>
+
+<div id="prop"></div>
+<script src="/js/prop.js"></script>
+<script src="/js/uninstalled_packages.js"></script>
+<script src="/js/disabled_packages.js"></script>
+<script src="/js/processes.js"></script>
+</body>
+</html>
