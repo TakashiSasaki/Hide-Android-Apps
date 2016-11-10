@@ -1,16 +1,16 @@
-function updateUninstalledPackages(){
-    var table_element = document.getElementById("uninstalled_packages");
+function updateInstalledPackages(){
+    var table_element = document.getElementById("installed_packages");
     while(table_element.firstChild) {
         table_element.removeChild(table_element.firstChild);
     }
-    document.getElementById("number_of_uninstalled_packages").value = "updating";
+    document.getElementById("number_of_installed_packages").value = "updating";
     var script_element = document.createElement("script");
-    script_element.src = "/?uninstalled_packages=1&callback=callbackUninstalledPackages";
+    script_element.src = "/?installed_packages=1&callback=callbackInstalledPackages";
     document.body.appendChild(script_element);
 }
 
-function callbackUninstalledPackages(json_object){
-    var table_element = document.getElementById("uninstalled_packages");
+function callbackInstalledPackages(json_object){
+    var table_element = document.getElementById("installed_packages");
     for (var k in json_object) {
         var td_element_k = document.createElement("td");
         td_element_k.textContent = k;
@@ -21,5 +21,5 @@ function callbackUninstalledPackages(json_object){
         tr_element.appendChild(td_element_v);
         table_element.appendChild(tr_element);
     }
-    document.getElementById("number_of_uninstalled_packages").value = json_object.length;
+    document.getElementById("number_of_installed_packages").val = json_object.length;
 }

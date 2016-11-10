@@ -3,49 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <title>Hide Android Apps</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
-<h1>Summary
+<div id="sidebar">
+    <ul>
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#processes">Processes</a></li>
+        <li><a href="#installed_packages">Installed Packages</a></li>
+        <li><a href="#uninstalled_packages">Uninstalled Packages</a></li>
+        <li><a href="#enabled_packages">Enabled Packages</a></li>
+        <li><a href="#disabled_packages">Disabled Packages</a></li>
+        <li><a href="#system_packages">System Packages</a></li>
+        <li><a href="#third_party_packages">Third Party Packages</a></li>
+        <li><a href="#prop">Android Properties</a></li>
+    </ul>
+</div>
+<h1 id="summary">Summary
     <button onclick="updateAll()">update</button>
 </h1>
 <label>model <input id="model" placeholder="model"/></label>
-<label>processes <input id="number_of_processes" placeholder="number of processes"></label>
+<label>Installed Packages<input id="number_of_installed_packages" placeholder="# of installed packages"></label>
+<label>Uninstalled Packages<input id="number_of_uninstalled_packages" placeholder="# of uninstalled packages"></label>
+<label>Running Processes <input id="number_of_running_processes" placeholder="# of running processes"></label>
+<label>Enabled Packages<input id="number_of_enabled_packages" placeholder="# of enabled packages"></label>
+<label>Disabled Packages<input id="number_of_disabled_packages" placeholder="# of disabled_packages"></label>
+<label>System Packages<input id="number_of_system_packages" placeholder="# of system packages"></label>
+<label>Third Party Packages<input id="number_of_third_party_packages" placeholder="# of third party packages"></label>
 
 <h1>Processes
     <button onclick="updateProcesses()">update</button>
 </h1>
-<div id="processes">
-
-</div>
-<h1>Enabled packages
-    <button onclick="updateEnabledPackages()">update</button>
-</h1>
-<table id="enabled_packages" border="1px">
-
-</table>
-<h1>Disabled packages
-    <button onclick="updateDisabledPackages()">update</button>
-</h1>
-<div id="disabled_packages">
-
+<div>
+    <table id="processes"></table>
 </div>
 
-<h1>Uninstalled (hidden) packages
+<h1>Installed Packages
+    <button onclick="updateInstalledPackages()">update</button>
+</h1>
+<div class="packages">
+    <table id="installed_packages"></table>
+</div>
+
+<h1>Uninstalled (hidden) Packages
     <button onclick="updateUninstalledPackages()">update</button>
 </h1>
-<div id="uninstalled_packages">
-
+<div class="packages">
+    <table id="uninstalled_packages"></table>
 </div>
+
+<h1>Enabled Packages
+    <button onclick="updateEnabledPackages()">update</button>
+</h1>
+<div class="packages">
+    <table id="enabled_packages" class="packages">
+    </table>
+</div>
+
+<h1>Disabled Packages
+    <button onclick="updateDisabledPackages()">update</button>
+</h1>
+<div class="packages">
+    <table id="disabled_packages"></table>
+</div>
+
+<h1>System Packages
+    <button onclick="updateSystemPackages()">update</button>
+</h1>
+<table id="system_packages" class="packages">
+
+</table>
+
+<h1>Third Party Packages
+    <button onclick="updateThirdPartyPackages()">update</button>
+</h1>
+<table id="third_party_packages" class="packages">
+
+</table>
+
+
 <h1>prop
     <button onclick="updateProp()">update</button>
 </h1>
 
-<div id="prop"></div>
-<script src="/js/update_all.js"></script>
-<script src="/js/prop.js"></script>
-<script src="/js/uninstalled_packages.js"></script>
-<script src="/js/disabled_packages.js"></script>
-<script src="/js/enabled_packages.js"></script>
-<script src="/js/processes.js"></script>
+<div class="packages">
+    <table id="prop"></table>
+</div>
+
+<script src="../js/update_all.js"></script>
+<script src="../js/prop.js"></script>
+<script src="../js/installed_packages.js"></script>
+<script src="../js/uninstalled_packages.js"></script>
+<script src="../js/disabled_packages.js"></script>
+<script src="../js/enabled_packages.js"></script>
+<script src="../js/third_party_packages.js"></script>
+<script src="../js/system_packages.js"></script>
+<script src="../js/processes.js"></script>
 </body>
 </html>

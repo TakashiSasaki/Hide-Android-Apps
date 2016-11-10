@@ -3,6 +3,7 @@ function updateEnabledPackages(){
     while(table_element.firstChild) {
         table_element.removeChild(table_element.firstChild);
     }
+    document.getElementById("number_of_enabled_packages").value = "updating";
     var script_element = document.createElement("script");
     script_element.src = "/?enabled_packages=1&callback=callbackEnabledPackages";
     document.body.appendChild(script_element);
@@ -20,5 +21,5 @@ function callbackEnabledPackages(json_object){
         tr_element.appendChild(td_element_v);
         table_element.appendChild(tr_element);
     }
-    table_element.select();
+    document.getElementById("number_of_enabled_packages").value = json_object.length;
 }

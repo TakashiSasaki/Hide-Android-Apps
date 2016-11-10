@@ -1,16 +1,16 @@
 function updateDisabledPackages(){
-    var div_element = document.getElementById("disabled_packages");
-    while(div_element.firstChild) {
-        div_element.removeChild(div_element.firstChild);
+    var table_element = document.getElementById("disabled_packages");
+    while(table_element.firstChild) {
+        table_element.removeChild(div_element.firstChild);
     }
+    document.getElementById("number_of_disabled_packages").value="updating";
     var script_element = document.createElement("script");
     script_element.src = "/?disabled_packages=1&callback=callbackDisabledPackages";
     document.body.appendChild(script_element);
 }
 
 function callbackDisabledPackages(json_object){
-    var div_element = document.getElementById("disabled_packages");
-    var table_element = document.createElement("table");
+    var table_element = document.getElementById("disabled_packages");
     for(var k in json_object) {
         var tr_element = document.createElement("tr");
         var td_element_k = document.createElement("td");
@@ -21,5 +21,5 @@ function callbackDisabledPackages(json_object){
         tr_element.appendChild(td_element_v);
         table_element.appendChild(tr_element);
     }
-    div_element.appendChild(table_element);
+    document.getElementById("number_of_disabled_packages").value=json_object.length;
 }
