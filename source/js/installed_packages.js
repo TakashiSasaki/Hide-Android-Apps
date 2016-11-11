@@ -21,5 +21,5 @@ function callbackInstalledPackages(json_object){
         tr_element.appendChild(td_element_v);
         table_element.appendChild(tr_element);
     }
-    document.getElementById("number_of_installed_packages").val = json_object.length;
+    document.getElementById("number_of_installed_packages").value = json_object.length;
 }

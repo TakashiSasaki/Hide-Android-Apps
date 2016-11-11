@@ -27,12 +27,28 @@ class HideAndroidAppsRequestHandler(http.server.SimpleHTTPRequestHandler):
 
         if "enabled_packages" in params.keys():
             adb = Adb.Adb()
-            json_string = json.dumps(adb.listEnabledPackages())
+            packages = adb.listEnabledPackages()
+            json_string = json.dumps(packages)
+
+        if "installed_packages" in params.keys():
+            adb = Adb.Adb()
+            packages = adb.listInstalledPackages()
+            json_string = json.dumps(packages)
 
         if "uninstalled_packages" in params.keys():
             adb = Adb.Adb()
             uninstalled_packages = adb.listUninstalledPackages()
             json_string = json.dumps(uninstalled_packages)
+
+        if "system_packages" in params.keys():
+            adb = Adb.Adb()
+            packages = adb.listSystemPackages()
+            json_string = json.dumps(packages)
+
+        if "third_party_packages" in params.keys():
+            adb = Adb.Adb()
+            packages = adb.listThirdPartyPackages()
+            json_string = json.dumps(packages)
 
         if "processes" in params.keys():
             adb = Adb.Adb()

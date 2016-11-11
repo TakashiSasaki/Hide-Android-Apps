@@ -54,6 +54,9 @@ class Adb():
         package_names.sort()
         return package_names
 
+    def listInstalledPackages(self):
+        return self.listPackages()
+
     def listPackagesIncludingUninstalled(self):
         return self.listPackages(["-u"])
 
@@ -124,12 +127,12 @@ class Adb():
         n_disabled = len(self.listDisabledPackages())
         n_system = len(self.listSystemPackages())
         n_third_party = len(self.listThirdPartyPackages())
-        print("Installed :", n_all_installed)
-        print("Uninstalled :", n_all_uninstalled)
-        print("Enabled:", n_enabled)
-        print("Disabled:", n_disabled)
-        print("System:", n_system)
-        print("Third Party:", n_third_party)
+        print("Installed (pm list packages):", n_all_installed)
+        print("Uninstalled (pm list packages -u):", n_all_uninstalled)
+        print("Enabled (pm list packages -e):", n_enabled)
+        print("Disabled (pm list packages -d):", n_disabled)
+        print("System (pm list packages -s):", n_system)
+        print("Third Party (pm list packages -3):", n_third_party)
 
 
 def diffLists(list1, list2):

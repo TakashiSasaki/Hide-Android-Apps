@@ -3,6 +3,7 @@ function updateDisabledPackages(){
     while(table_element.firstChild) {
         table_element.removeChild(div_element.firstChild);
     }
+    //window.scrollTo(0, table_element.getBoudingClientRect().top + window.pageYOffset);
     document.getElementById("number_of_disabled_packages").value="updating";
     var script_element = document.createElement("script");
     script_element.src = "/?disabled_packages=1&callback=callbackDisabledPackages";
