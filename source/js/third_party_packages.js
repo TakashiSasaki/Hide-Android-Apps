@@ -23,3 +23,7 @@ function callbackThirdPartyPackages(json_object){
     }
     document.getElementById("number_of_third_party_packages").value = json_object.length;
 }
+
+function copyThirdPartyPackages(){
+    alert("not implemented");
+}
