@@ -22,14 +22,24 @@
 <h1 id="summary">Summary
     <button onclick="updateAll()">update</button>
 </h1>
-<label>model <input id="model" placeholder="model"/></label>
-<label>Installed Packages<input id="number_of_installed_packages" placeholder="# of installed packages"></label>
-<label>Uninstalled Packages<input id="number_of_uninstalled_packages" placeholder="# of uninstalled packages"></label>
+<fieldset><label>model <input id="model" placeholder="model"/></label>
 <label>Running Processes <input id="number_of_running_processes" placeholder="# of running processes"></label>
-<label>Enabled Packages<input id="number_of_enabled_packages" placeholder="# of enabled packages"></label>
-<label>Disabled Packages<input id="number_of_disabled_packages" placeholder="# of disabled_packages"></label>
-<label>System Packages<input id="number_of_system_packages" placeholder="# of system packages"></label>
-<label>Third Party Packages<input id="number_of_third_party_packages" placeholder="# of third party packages"></label>
+</fieldset>
+<fieldset><label>Installed Packages<input id="number_of_installed_packages"
+                                          placeholder="# of installed packages"></label>
+    <label>Uninstalled Packages<input id="number_of_uninstalled_packages"
+                                      placeholder="# of uninstalled packages"></label>
+</fieldset>
+
+<fieldset>
+    <label>Enabled Packages<input id="number_of_enabled_packages" placeholder="# of enabled packages"></label>
+    <label>Disabled Packages<input id="number_of_disabled_packages" placeholder="# of disabled_packages"></label>
+</fieldset>
+<fieldset>
+    <label>System Packages<input id="number_of_system_packages" placeholder="# of system packages"></label>
+    <label>Third Party Packages<input id="number_of_third_party_packages"
+                                      placeholder="# of third party packages"></label>
+</fieldset>
 
 <h1>Processes
     <button onclick="updateProcesses()">update</button>
@@ -45,6 +55,8 @@
 
 <h1>Uninstalled (hidden) Packages
     <button onclick="updateUninstalledPackages()">update</button>
+    <button onclick="checkAllUninstalledPackages()">check all</button>
+    <button onclick="unhidePackages()">unhide checked packages</button>
 </h1>
 <table id="uninstalled_packages"></table>
 
