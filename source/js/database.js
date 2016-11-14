@@ -12,4 +12,5 @@ function callbackUpdateDatabase(json_object){
         window.localStorage.setItem(json_object[i][0], JSON.stringify(json_object[i]));
         //alert(json_object[i]);
     }
+    alert("downloaded " + json_object.length + " packages information.")
 }

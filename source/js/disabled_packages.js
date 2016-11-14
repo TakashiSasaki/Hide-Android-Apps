@@ -36,7 +36,7 @@ function enableCheckedPackages(package_name){
         tr_element = table_element.children[i];
         package_name = tr_element.children[1].textContent;
         input_element = tr_element.children[2].firstChild;
-        if(input_element.checked = true){
+        if(input_element.checked == true){
             var script_element = document.createElement("script")
             script_element.src="/?enable_package=1&callback=callbackEnablePackage&package=" + package_name;
             document.body.appendChild(script_element);
