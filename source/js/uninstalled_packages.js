@@ -9,21 +9,22 @@ function updateUninstalledPackages(){
     document.body.appendChild(script_element);
 }
 
+function createTdElementWithTextContent(x){
+    var td = document.createElement("td");
+    td.textContent = x;
+    return td;
+}
+
 function callbackUninstalledPackages(json_object){
-    var table_element = document.getElementById("uninstalled_packages");
+    window.localStorage.setItem("uninstalled_packages", JSON.stringify(json_object));
+    var table_element = getEmptyElement("uninstalled_packages");
+    //var table_element = document.getElementById("uninstalled_packages");
     for (var k in json_object) {
-        var td_element_k = document.createElement("td");
-        td_element_k.textContent = k;
-        var td_element_v = document.createElement("td");
-        td_element_v.textContent = json_object[k];
         var tr_element = document.createElement("tr");
-        var input_element_checkbox = document.createElement("input");
-        input_element_checkbox.type = "checkbox";
-        var td_element_checkbox = document.createElement("td");
-        td_element_checkbox.appendChild(input_element_checkbox);
-        tr_element.appendChild(td_element_k);
-        tr_element.appendChild(td_element_v);
-        tr_element.appendChild(td_element_checkbox);
+        tr_element.appendChild(createTdElementWithTextContent(k));
+        tr_element.appendChild(createTdElementWithTextContent(json_object[k]));
+        tr_element.appendChild(createTdElementWithCheckbox());
+        tr_element.appendChild(createTdElementWithTextContent(loadPackageDescription(json_object[k])));
         table_element.appendChild(tr_element);
     }
     document.getElementById("number_of_uninstalled_packages").value = json_object.length;
@@ -54,4 +55,8 @@ function unhidePackages(){
 
 function callbackUnhidePackage(json_object){
     alert(json_object.result_string);
+}
+
+function reloadUninstalledPackages(){
+
 }
