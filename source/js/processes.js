@@ -23,3 +23,19 @@ function callbackProcesses(json_object){
     }
     document.getElementById("number_of_running_processes").value = json_object.length;
 }
+
+function copyProcesses(){
+    var table_element = document.getElementById("processes");
+    var model = document.getElementById("model").value;
+    text_to_copy = "";
+    for(var i=0; i<table_element.children.length; ++i){
+        var tr_element = table_element.children[i];
+        //alert(tr_element);
+        text_to_copy += tr_element.children[1].textContent + "\t" +  model + "\n";
+    }
+    window.addEventListener("copy", function(e){
+        //alert(e.clipboardData);
+        e.clipboardData.setData("text", text_to_copy);
+    });
+    document.execCommand("copy");
+}
