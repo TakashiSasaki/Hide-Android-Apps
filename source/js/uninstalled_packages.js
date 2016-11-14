@@ -58,5 +58,10 @@ function callbackUnhidePackage(json_object){
 }
 
 function reloadUninstalledPackages(){
-
+    getEmptyElement("uninstalled_packages");
+    var json_string = window.localStorage.getItem("uninstalled_packages");
+    if(json_string) {
+        var json_object = JSON.parse(json_string);
+        callbackUninstalledPackages(json_object);
+    }
 }

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3588a03-0145-4d00-aed1-df38c4b5064a" name="Default" comment="implemented &quot;reload installed packages&quot; button">
+    <list default="true" id="f3588a03-0145-4d00-aed1-df38c4b5064a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/index.html" afterPath="$PROJECT_DIR$/html/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/index.js" afterPath="$PROJECT_DIR$/js/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/installed_packages.js" afterPath="$PROJECT_DIR$/js/installed_packages.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/uninstalled_packages.js" afterPath="$PROJECT_DIR$/js/uninstalled_packages.js" />
     </list>
     <ignored path="source.iws" />
@@ -89,8 +86,8 @@
       <file leaf-file-name="uninstalled_packages.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/uninstalled_packages.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+            <state relative-caret-position="660">
+              <caret line="59" column="34" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -620,7 +617,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479133466438</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="implemented reloading installed package descriptions">
+      <created>1479161753682</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1479161753682</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -680,7 +684,8 @@
     <MESSAGE value="background color" />
     <MESSAGE value="reformatted index.html" />
     <MESSAGE value="implemented &quot;reload installed packages&quot; button" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented &quot;reload installed packages&quot; button" />
+    <MESSAGE value="implemented reloading installed package descriptions" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented reloading installed package descriptions" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1087,8 +1092,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/uninstalled_packages.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        <state relative-caret-position="660">
+          <caret line="59" column="34" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="34" />
           <folding />
         </state>
       </provider>
