@@ -61,6 +61,12 @@ class HideAndroidAppsRequestHandler(http.server.SimpleHTTPRequestHandler):
             result_string = adb.unhidePackage(package)
             json_string = json.dumps({"result_string": result_string});
 
+        if "enable_package" in params.keys():
+            adb = Adb.Adb()
+            package = params["package"]
+            result_string = adb.enablePackage(package)
+            json_string = json.dumps({"result_string": result_string});
+
         if json_string is not None:
             callback_function_name = params["callback"][0]
             body = callback_function_name + "(" + json_string + ");"
