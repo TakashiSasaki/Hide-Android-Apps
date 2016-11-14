@@ -24,4 +24,5 @@ function callbackProp(json_object){
     }
     var model_form = document.getElementById("model");
     model_form.value = json_object["ro.product.model"];
+    window.localStorage.setItem("model", model_form.value);
 }

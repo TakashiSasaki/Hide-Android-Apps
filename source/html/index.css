@@ -16,6 +16,22 @@
   background-color: #eeeeff;
 }
 
+.enabled_packages {
+  background-color: #eeffff;
+}
+
+.disabled_packages {
+  background-color: #ffeeff;
+}
+
+.system_packages {
+  background-color: #ffffee;
+}
+
+.third_party_packages {
+  background-color: #f0f0f0;
+}
+
 table {
 //  background-color: #eeeeee;
 //    border: 1px solid;

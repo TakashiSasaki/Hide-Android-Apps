@@ -12,10 +12,10 @@
         <li><span class="processes"><a href="#processes">Processes</a></span></li>
         <li><span class="installed_packages"><a href="#installed_packages">Installed Packages</a></span></li>
         <li><span class="uninstalled_packages"><a href="#uninstalled_packages">Uninstalled Packages</a></span></li>
-        <li><a href="#enabled_packages">Enabled Packages</a></li>
-        <li><a href="#disabled_packages">Disabled Packages</a></li>
-        <li><a href="#system_packages">System Packages</a></li>
-        <li><a href="#third_party_packages">Third Party Packages</a></li>
+        <li><span class="enabled_packages"><a href="#enabled_packages">Enabled Packages</a></span></li>
+        <li><span class="disabled_packages"><a href="#disabled_packages">Disabled Packages</a></span></li>
+        <li><span class="system_packages"><a href="#system_packages">System Packages</a></span></li>
+        <li><span class="third_party_packages"><a href="#third_party_packages">Third Party Packages</a></span></li>
         <li><a href="#prop">Android Properties</a></li>
     </ul>
 </div>
@@ -35,13 +35,19 @@
                                                                    class="uninstalled_packages"></label>
 </fieldset>
 <fieldset>
-    <label>Enabled Packages<input id="number_of_enabled_packages" placeholder="# of enabled packages"></label>
-    <label>Disabled Packages<input id="number_of_disabled_packages" placeholder="# of disabled_packages"></label>
+    <label class="enabled_packages">Enabled Packages<input id="number_of_enabled_packages"
+                                                           placeholder="# of enabled packages" class="enabled_packages"></label>
+    <label class="disabled_packages">Disabled Packages<input id="number_of_disabled_packages"
+                                                             placeholder="# of disabled_packages"
+                                                             class="disabled_packages"></label>
 </fieldset>
 <fieldset>
-    <label>System Packages<input id="number_of_system_packages" placeholder="# of system packages"></label>
-    <label>Third Party Packages<input id="number_of_third_party_packages"
-                                      placeholder="# of third party packages"></label>
+    <label class="system_packages">System Packages<input id="number_of_system_packages"
+                                                         placeholder="# of system packages"
+                                                         class="system_packages"></label>
+    <label class="third_party_packages">Third Party Packages<input id="number_of_third_party_packages"
+                                                                   placeholder="# of third party packages"
+                                                                   class="third_party_packages"></label>
 </fieldset>
 <h1 class="processes">Processes
     <button onclick="updateProcesses()">update</button>
@@ -53,40 +59,43 @@
 </div>
 <h1 class="installed_packages">Installed Packages
     <button onclick="updateInstalledPackages()">update</button>
+    <button onclick="reloadInstalledPackages()">reload</button>
 </h1>
 <table id="installed_packages" class="installed_packages"></table>
+
 <h1 class="uninstalled_packages">Uninstalled (hidden) Packages
     <button onclick="updateUninstalledPackages()">update</button>
     <button onclick="checkAllUninstalledPackages()">check all</button>
     <button onclick="unhidePackages()">unhide checked packages</button>
 </h1>
 <table id="uninstalled_packages" class="uninstalled_packages"></table>
-<h1>Enabled Packages
+<h1 class="enabled_packages">Enabled Packages
     <button onclick="updateEnabledPackages()">update</button>
 </h1>
-<table id="enabled_packages" class="packages">
+<table id="enabled_packages" class="enabled_packages">
 </table>
-<h1>Disabled Packages
+<h1 class="disabled_packages">Disabled Packages
     <button onclick="updateDisabledPackages()">update</button>
     <button onclick="enableCheckedPackages()">enable checked packages</button>
 </h1>
-<table id="disabled_packages"></table>
-<h1>System Packages
+<table id="disabled_packages" class="disabled_packages"></table>
+<h1 class="system_packages">System Packages
     <button onclick="updateSystemPackages()">update</button>
     <button onclick="copySystemPackages()">copy</button>
 </h1>
-<table id="system_packages" class="packages"></table>
-<h1>Third Party Packages
+<table id="system_packages" class="system_packages"></table>
+<h1 class="third_party_packages">Third Party Packages
     <button onclick="updateThirdPartyPackages()">update</button>
     <button onclick="copyThirdPartyPackages()">copy</button>
 </h1>
-<table id="third_party_packages" class="packages"></table>
+<table id="third_party_packages" class="third_party_packages"></table>
 <h1>Android Properties
     <button onclick="updateProp()">update</button>
 </h1>
 <div class="packages">
     <table id="prop"></table>
 </div>
+<script src="../js/index.js"></script>
 <script src="../js/update_all.js"></script>
 <script src="../js/prop.js"></script>
 <script src="../js/installed_packages.js"></script>
