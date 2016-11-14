@@ -10,6 +10,7 @@ function updateProcesses(){
 }
 
 function callbackProcesses(json_object){
+    window.localStorage.setItem("processes", JSON.stringify(json_object));
     var table_element = document.getElementById("processes");
     for(var k in json_object) {
         var tr_element = document.createElement("tr");
@@ -38,4 +39,10 @@ function copyProcesses(){
         e.clipboardData.setData("text", text_to_copy);
     });
     document.execCommand("copy");
+}
+
+function reloadProcesses(){
+     var json_string = window.localStorage.getItem("processes");
+     var json_object = JSON.parse(json_string);
+     updateProcesses(json_object);
 }

@@ -20,7 +20,8 @@
     </ul>
 </div>
 <h1 id="summary">Summary
-    <button onclick="updateAll()">update</button>
+    <button onclick="updateAll()">update all</button>
+    <button onclick="updateDatabase()">update database</button>
 </h1>
 <fieldset><label>model <input id="model" placeholder="model"/></label>
 <label>Running Processes <input id="number_of_running_processes" placeholder="# of running processes"></label>
@@ -44,6 +45,7 @@
 <h1>Processes
     <button onclick="updateProcesses()">update</button>
     <button onclick="copyProcesses()">copy</button>
+    <button onclick="reloadProcesses()">reload</button>
 </h1>
 <div>
     <table id="processes"></table>
@@ -105,5 +107,6 @@
 <script src="../js/third_party_packages.js"></script>
 <script src="../js/system_packages.js"></script>
 <script src="../js/processes.js"></script>
+<script src="../js/database.js"></script>
 </body>
 </html>
