@@ -29,6 +29,7 @@ text_to_copy = "";
 function copySystemPackages(){
     var table_element = document.getElementById("system_packages");
     var model = document.getElementById("model").value;
+    text_to_copy = "";
     for(var i=0; i<table_element.children.length; ++i){
         var tr_element = table_element.children[i];
         //alert(tr_element);

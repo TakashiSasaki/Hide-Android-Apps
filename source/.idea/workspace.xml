@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f3588a03-0145-4d00-aed1-df38c4b5064a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/system_packages.js" afterPath="$PROJECT_DIR$/js/system_packages.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/third_party_packages.js" afterPath="$PROJECT_DIR$/js/third_party_packages.js" />
     </list>
     <ignored path="source.iws" />
@@ -43,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="system_packages.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="system_packages.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/system_packages.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="42" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+            <state relative-caret-position="351">
+              <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -73,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="third_party_packages.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="third_party_packages.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/third_party_packages.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="318">
+              <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -166,8 +167,8 @@
         <option value="$PROJECT_DIR$/HideAndroidAppsRequestHandler.py" />
         <option value="$PROJECT_DIR$/js/disabled_packages.js" />
         <option value="$PROJECT_DIR$/html/index.html" />
-        <option value="$PROJECT_DIR$/js/system_packages.js" />
         <option value="$PROJECT_DIR$/js/third_party_packages.js" />
+        <option value="$PROJECT_DIR$/js/system_packages.js" />
       </list>
     </option>
   </component>
@@ -575,7 +576,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479120840215</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="implemented &quot;copy third party packages&quot; button">
+      <created>1479121046421</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1479121046421</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -628,7 +636,8 @@
     <MESSAGE value="implementing copy button" />
     <MESSAGE value="implemented 'enable packages'" />
     <MESSAGE value="implemented &quot;copy system packages&quot; button" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented &quot;copy system packages&quot; button" />
+    <MESSAGE value="implemented &quot;copy third party packages&quot; button" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented &quot;copy third party packages&quot; button" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1015,14 +1024,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/system_packages.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
@@ -1033,8 +1034,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/third_party_packages.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state relative-caret-position="318">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/system_packages.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
           <folding />
         </state>
       </provider>
