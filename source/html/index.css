@@ -1,9 +1,31 @@
 #sidebar {
-  background-color: #eeffff;
+  background-color: #ffffff;
   position: fixed;
   right: 0px;
 }
 
-table {
+.processes {
   background-color: #ffeeee;
+}
+
+.installed_packages {
+  background-color: #eeffee;
+}
+
+.uninstalled_packages {
+  background-color: #eeeeff;
+}
+
+table {
+//  background-color: #eeeeee;
+//    border: 1px solid;
+    margin: 0px;
+    padding: 0px;
+}
+
+td {
+    border: 1px solid;
+    margin: 0px;
+    padding: 0px;
+    border-color: #dddddd;
 }

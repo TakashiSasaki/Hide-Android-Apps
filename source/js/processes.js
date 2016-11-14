@@ -20,6 +20,12 @@ function callbackProcesses(json_object){
         var td_element_v = document.createElement("td");
         td_element_v.textContent = json_object[k];
         tr_element.appendChild(td_element_v);
+        var td_element_description = document.createElement("td");
+        var json_string = window.localStorage.getItem(json_object[k]);
+        if(json_string){
+            td_element_description.textContent = JSON.parse(json_string)[4];
+        }
+        tr_element.appendChild(td_element_description);
         table_element.appendChild(tr_element);
     }
     document.getElementById("number_of_running_processes").value = json_object.length;

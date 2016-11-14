@@ -7,11 +7,12 @@
 </head>
 <body>
 <div id="sidebar">
+
     <ul>
         <li><a href="#summary">Summary</a></li>
-        <li><a href="#processes">Processes</a></li>
-        <li><a href="#installed_packages">Installed Packages</a></li>
-        <li><a href="#uninstalled_packages">Uninstalled Packages</a></li>
+        <li><span class="processes"><a href="#processes">Processes</a></span></li>
+        <li><span class="installed_packages"><a href="#installed_packages">Installed Packages</a></span></li>
+        <li><span class="uninstalled_packages"><a href="#uninstalled_packages">Uninstalled Packages</a></span></li>
         <li><a href="#enabled_packages">Enabled Packages</a></li>
         <li><a href="#disabled_packages">Disabled Packages</a></li>
         <li><a href="#system_packages">System Packages</a></li>
@@ -24,12 +25,15 @@
     <button onclick="updateDatabase()">update database</button>
 </h1>
 <fieldset><label>model <input id="model" placeholder="model"/></label>
-<label>Running Processes <input id="number_of_running_processes" placeholder="# of running processes"></label>
+    <label class="processes">Running Processes <input id="number_of_running_processes"
+                                                      placeholder="# of running processes" class="processes"></label>
 </fieldset>
-<fieldset><label>Installed Packages<input id="number_of_installed_packages"
-                                          placeholder="# of installed packages"></label>
-    <label>Uninstalled Packages<input id="number_of_uninstalled_packages"
-                                      placeholder="# of uninstalled packages"></label>
+<fieldset><label class="installed_packages">Installed Packages<input id="number_of_installed_packages"
+                                                                     placeholder="# of installed packages"
+                                                                     class="installed_packages"></label>
+    <label class="uninstalled_packages">Uninstalled Packages<input id="number_of_uninstalled_packages"
+                                                                   placeholder="# of uninstalled packages"
+                                                                   class="uninstalled_packages"></label>
 </fieldset>
 
 <fieldset>
@@ -42,26 +46,26 @@
                                       placeholder="# of third party packages"></label>
 </fieldset>
 
-<h1>Processes
+<h1 class="processes">Processes
     <button onclick="updateProcesses()">update</button>
     <button onclick="copyProcesses()">copy</button>
     <button onclick="reloadProcesses()">reload</button>
 </h1>
-<div>
+<div class="processes">
     <table id="processes"></table>
 </div>
 
-<h1>Installed Packages
+<h1 class="installed_packages">Installed Packages
     <button onclick="updateInstalledPackages()">update</button>
 </h1>
-<table id="installed_packages"></table>
+<table id="installed_packages" class="installed_packages"></table>
 
-<h1>Uninstalled (hidden) Packages
+<h1 class="uninstalled_packages">Uninstalled (hidden) Packages
     <button onclick="updateUninstalledPackages()">update</button>
     <button onclick="checkAllUninstalledPackages()">check all</button>
     <button onclick="unhidePackages()">unhide checked packages</button>
 </h1>
-<table id="uninstalled_packages"></table>
+<table id="uninstalled_packages" class="uninstalled_packages"></table>
 
 <h1>Enabled Packages
     <button onclick="updateEnabledPackages()">update</button>
