@@ -22,7 +22,11 @@ function callbackProp(json_object){
         tr_element.appendChild(td_element_2);
         table_element.appendChild(tr_element);
     }
+    var model = json_object["ro.product.model"];
+    if(model == undefined || model == null || model == ""){
+        model = json_object["ro.somc.product.model"];
+    }
     var model_form = document.getElementById("model");
-    model_form.value = json_object["ro.product.model"];
-    window.localStorage.setItem("model", model_form.value);
+    model_form.value = model;
+    window.localStorage.setItem("model", model);
 }

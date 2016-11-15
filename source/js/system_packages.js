@@ -33,7 +33,7 @@ function copySystemPackages(){
     for(var i=0; i<table_element.children.length; ++i){
         var tr_element = table_element.children[i];
         //alert(tr_element);
-        text_to_copy += tr_element.children[1].textContent + "\t\t" + model + "\ts\n";
+        text_to_copy += tr_element.children[1].textContent + "\t" + model + "\ts\n";
     }
     window.addEventListener("copy", function(e){
         //alert(e.clipboardData);

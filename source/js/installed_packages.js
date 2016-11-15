@@ -34,5 +34,8 @@ function reloadInstalledPackages(){
     if(json_string) {
         var json_object = JSON.parse(json_string);
         callbackInstalledPackages(json_object);
+        alert("loaded " + json_object.length + " package(s).")
+    } else {
+        alert("no installed package.")
     }
 }

@@ -54,6 +54,6 @@ function reloadProcesses(){
         updateProcesses(json_object);
         alert("loaded " + json_object.length + " processes.")
      } else {
-        alert("no saved data");
+        alert("no saved process.");
      }
 }
