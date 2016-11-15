@@ -49,6 +49,11 @@ function copyProcesses(){
 
 function reloadProcesses(){
      var json_string = window.localStorage.getItem("processes");
-     var json_object = JSON.parse(json_string);
-     updateProcesses(json_object);
+     if(json_string) {
+        var json_object = JSON.parse(json_string);
+        updateProcesses(json_object);
+        alert("loaded " + json_object.length + " processes.")
+     } else {
+        alert("no saved data");
+     }
 }
