@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3588a03-0145-4d00-aed1-df38c4b5064a" name="Default" comment="implemented getDisabledPackageList">
+    <list default="true" id="f3588a03-0145-4d00-aed1-df38c4b5064a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AdbRequestHandler.py" afterPath="$PROJECT_DIR$/AdbRequestHandler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/enabled_packages.js" afterPath="$PROJECT_DIR$/js/enabled_packages.js" />
     </list>
     <ignored path="source.iws" />
@@ -51,9 +50,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="560">
               <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -61,8 +58,8 @@
       <file leaf-file-name="enabled_packages.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/enabled_packages.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="7" column="49" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="49" />
+            <state relative-caret-position="363">
+              <caret line="11" column="38" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -178,8 +175,8 @@
         <option value="$PROJECT_DIR$/Adb.py" />
         <option value="$PROJECT_DIR$/js/processes.js" />
         <option value="$PROJECT_DIR$/js/disabled_packages.js" />
-        <option value="$PROJECT_DIR$/js/enabled_packages.js" />
         <option value="$PROJECT_DIR$/AdbRequestHandler.py" />
+        <option value="$PROJECT_DIR$/js/enabled_packages.js" />
       </list>
     </option>
   </component>
@@ -788,7 +785,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479732070949</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="implemented getEnabledPackageList">
+      <created>1479739664778</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1479739664778</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -827,7 +831,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed bugs in copying" />
     <MESSAGE value="implemented &quot;copy processes&quot; button" />
     <MESSAGE value="use localStorage" />
     <MESSAGE value="background color" />
@@ -852,7 +855,8 @@
     <MESSAGE value="support default callback function name" />
     <MESSAGE value="implemented getProcessList" />
     <MESSAGE value="implemented getDisabledPackageList" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented getDisabledPackageList" />
+    <MESSAGE value="implemented getEnabledPackageList" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented getEnabledPackageList" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -948,9 +952,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="627">
           <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1027,9 +1029,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1246,16 +1246,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
           <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/enabled_packages.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="7" column="49" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="49" />
+        <state relative-caret-position="363">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="38" />
           <folding />
         </state>
       </provider>

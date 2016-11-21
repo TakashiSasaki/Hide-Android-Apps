@@ -5,11 +5,11 @@ function updateEnabledPackages(){
     }
     document.getElementById("number_of_enabled_packages").value = "updating";
     var script_element = document.createElement("script");
-    script_element.src = "/?getEnabledPackageList=1&callback=callbackEnabledPackages";
+    script_element.src = "/?getEnabledPackageList=1";
     document.body.appendChild(script_element);
 }
 
-function callbackEnabledPackages(json_object){
+function getEnabledPackageListCallback(json_object){
     var table_element = document.getElementById("enabled_packages");
     for(var k in json_object) {
         var tr_element = document.createElement("tr");
