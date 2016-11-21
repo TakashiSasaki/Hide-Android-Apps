@@ -2,6 +2,8 @@ import os
 import re
 import subprocess
 
+import utils
+
 KUSO_AU = "https://docs.google.com/spreadsheets/d/1fgjgo91icfwia12ozOj67etb2ubi10bHM9VDoFeVgxY/pub?gid=11078667&single=true&output=csv"
 KUSO_SONY = "https://docs.google.com/spreadsheets/d/1fgjgo91icfwia12ozOj67etb2ubi10bHM9VDoFeVgxY/pub?gid=309729536&single=true&output=csv"
 
@@ -63,7 +65,7 @@ class Adb():
         return self.listPackages(["-u"])
 
     def listUninstalledPackages(self):
-        return list(diffLists(self.listPackages(), self.listPackagesIncludingUninstalled())[2])
+        return list(utils.diffLists(self.listPackages(), self.listPackagesIncludingUninstalled())[2])
 
     def listDisabledPackages(self):
         return self.listPackages(["-d"])
@@ -78,7 +80,7 @@ class Adb():
         return self.listPackages(["-3"])
 
     def listUninstalledThirdPartyPackages(self):
-        return list(diffLists(self.listThirdPartyPackages(), self.listUninstalledPackages())[2])
+        return list(utils.diffLists(self.listThirdPartyPackages(), self.listUninstalledPackages())[2])
 
     def hidePackage(self, package_name):
         return self.exec(["shell", "pm", "hide", package_name])
@@ -107,7 +109,7 @@ class Adb():
                 pass
         return process_names
 
-    def getProp(self):
+    def getPropDict(self):
         lines = self.exec(["shell", "getprop"])
         p = re.compile("\[(\S+)\]:\s\[(\S+)\]")
         prop = dict()
@@ -135,26 +137,6 @@ class Adb():
         print("Disabled (pm list packages -d):", n_disabled)
         print("System (pm list packages -s):", n_system)
         print("Third Party (pm list packages -3):", n_third_party)
-
-
-def diffLists(list1, list2):
-    list1 = set(list1)
-    list2 = set(list2)
-    list1only = set()
-    list2only = set()
-    both = set()
-    for l1 in list1:
-        if l1 in list2:
-            both.add(l1)
-        else:
-            list1only.add(l1)
-    for l2 in list2:
-        if l2 in list1:
-            both.add(l2)
-        else:
-            list2only.add(l2)
-    return (list1only, both, list2only)
-
 
 def fetchPackageNames(url):
     import urllib.request
