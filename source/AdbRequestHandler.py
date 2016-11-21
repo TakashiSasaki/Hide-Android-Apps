@@ -33,7 +33,7 @@ class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
         query = request.query
         params = urllib.parse.parse_qs(query)
         json_string = None
-        callback = None
+        callback_function_name = None
 
         for x in self.methodsGet:
             if x in params.keys():
@@ -126,3 +126,7 @@ class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
     def getProcessList(self, params):
         print(AdbRequestHandler.getProcessList)
         return json.dumps(self.adb.listProcesses())
+
+    def getDisabledPackageList(self, params):
+        disabled_packages = self.adb.listDisabledPackages()
+        json_string = json.dumps(disabled_packages)

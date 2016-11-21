@@ -6,11 +6,11 @@ function updateDisabledPackages(){
     //window.scrollTo(0, table_element.getBoudingClientRect().top + window.pageYOffset);
     document.getElementById("number_of_disabled_packages").value="updating";
     var script_element = document.createElement("script");
-    script_element.src = "/?disabled_packages=1&callback=callbackDisabledPackages";
+    script_element.src = "/?getDisabledPackageList=1";
     document.body.appendChild(script_element);
 }
 
-function callbackDisabledPackages(json_object){
+function getDisabledPackageListCallback(json_object){
     var table_element = document.getElementById("disabled_packages");
     for(var k in json_object) {
         var tr_element = document.createElement("tr");
