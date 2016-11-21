@@ -33,10 +33,15 @@ class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
         query = request.query
         params = urllib.parse.parse_qs(query)
         json_string = None
+        callback = None
 
         for x in self.methodsGet:
             if x in params.keys():
                 json_string = self.__getattribute__(x)(params)
+                if "callback" in params.keys():
+                    callback_function_name = params["callback"][0]
+                else:
+                    callback_function_name = x + "Callback"
 
         if "disabled_packages" in params.keys():
             adb = Adb.Adb()
@@ -96,7 +101,8 @@ class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
             json_string = json.dumps(adb.devices)
 
         if json_string is not None:
-            callback_function_name = params["callback"][0]
+            if callback_function_name is None:
+                callback_function_name = params["callback"][0]
             body = callback_function_name + "(" + json_string + ");"
             self.send_response(200)
             self.send_header('Content-type', 'text/html; charset=utf-8')
