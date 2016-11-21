@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3588a03-0145-4d00-aed1-df38c4b5064a" name="Default" comment="add __slots__">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utils.py" />
+    <list default="true" id="f3588a03-0145-4d00-aed1-df38c4b5064a" name="Default" comment="move some functions to utils.py">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adb.py" afterPath="$PROJECT_DIR$/Adb.py" />
     </list>
@@ -37,8 +36,8 @@
       <file leaf-file-name="Adb.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Adb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="139" column="13" selection-start-line="139" selection-start-column="13" selection-end-line="139" selection-end-column="13" />
+            <state relative-caret-position="549">
+              <caret line="175" column="30" selection-start-line="175" selection-start-column="30" selection-end-line="175" selection-end-column="30" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -637,7 +636,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479721475648</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="move some functions to utils.py">
+      <created>1479721771363</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1479721771378</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -676,7 +682,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added browser cache control" />
     <MESSAGE value="added enabled packages section" />
     <MESSAGE value="added summary section" />
     <MESSAGE value="UI improvement" />
@@ -701,7 +706,8 @@
     <MESSAGE value="renaming: AdbRequestHandler and AdbHttpServer" />
     <MESSAGE value="split class AdbHttpServer into a separate file" />
     <MESSAGE value="add __slots__" />
-    <option name="LAST_COMMIT_MESSAGE" value="add __slots__" />
+    <MESSAGE value="move some functions to utils.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="move some functions to utils.py" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1082,8 +1088,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Adb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="139" column="13" selection-start-line="139" selection-start-column="13" selection-end-line="139" selection-end-column="13" />
+        <state relative-caret-position="549">
+          <caret line="175" column="30" selection-start-line="175" selection-start-column="30" selection-end-line="175" selection-end-column="30" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

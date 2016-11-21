@@ -7,20 +7,21 @@ import utils
 KUSO_AU = "https://docs.google.com/spreadsheets/d/1fgjgo91icfwia12ozOj67etb2ubi10bHM9VDoFeVgxY/pub?gid=11078667&single=true&output=csv"
 KUSO_SONY = "https://docs.google.com/spreadsheets/d/1fgjgo91icfwia12ozOj67etb2ubi10bHM9VDoFeVgxY/pub?gid=309729536&single=true&output=csv"
 
-class Adb():
+
+class Adb:
     __slots__ = {"adbVersion", "adbPath", "devices"}
 
     def __init__(self):
         current_directory = os.getcwd()
-        candidates = []
+        candidates = list()
         candidates.append(current_directory + os.path.sep + "adb.exe")
         candidates.append(current_directory + os.path.sep + ".." + os.path.sep + "adb.exe")
         candidates.append(current_directory + os.path.sep + ".." + os.path.sep + "adb" + os.path.sep + "adb.exe")
         for candidate in candidates:
             try:
                 completed_process = subprocess.run([candidate], stderr = subprocess.STDOUT, stdout=subprocess.PIPE)
-                #print(completed_process.returncode)
-                #print(type(completed_process.stdout))
+                # print(completed_process.return_code)
+                # print(type(completed_process.stdout))
                 lines = completed_process.stdout.decode().split("\n")
                 m = re.compile("Android Debug Bridge version ([0-9.]+)").match(lines[0])
                 self.adbVersion = m.group(1)
@@ -46,7 +47,7 @@ class Adb():
         completed_process = subprocess.run([self.adbPath] + args, stdout=subprocess.PIPE)
         return completed_process.stdout.decode().split("\r\n")
 
-    def listPackages(self, args = []):
+    def listPackages(self, args=list()):
         lines = self.exec(["shell", "pm", "list", "packages"] + args)
         package_names = []
         for line in lines:
