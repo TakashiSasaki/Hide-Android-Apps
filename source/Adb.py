@@ -6,6 +6,8 @@ KUSO_AU = "https://docs.google.com/spreadsheets/d/1fgjgo91icfwia12ozOj67etb2ubi1
 KUSO_SONY = "https://docs.google.com/spreadsheets/d/1fgjgo91icfwia12ozOj67etb2ubi10bHM9VDoFeVgxY/pub?gid=309729536&single=true&output=csv"
 
 class Adb():
+    __slots__ = {"adbVersion", "adbPath", "devices"}
+
     def __init__(self):
         current_directory = os.getcwd()
         candidates = []
