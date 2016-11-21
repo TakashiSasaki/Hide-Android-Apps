@@ -37,21 +37,11 @@ class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
 
         for x in self.methodsGet:
             if x in params.keys():
-                json_string = self.__getattribute__(x)(params)
                 if "callback" in params.keys():
                     callback_function_name = params["callback"][0]
                 else:
                     callback_function_name = x + "Callback"
-
-        if "disabled_packages" in params.keys():
-            adb = Adb.Adb()
-            disabled_packages = adb.listDisabledPackages()
-            json_string = json.dumps(disabled_packages)
-
-        if "enabled_packages" in params.keys():
-            adb = Adb.Adb()
-            packages = adb.listEnabledPackages()
-            json_string = json.dumps(packages)
+                json_string = self.__getattribute__(x)(params)
 
         if "installed_packages" in params.keys():
             adb = Adb.Adb()
@@ -129,4 +119,7 @@ class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
 
     def getDisabledPackageList(self, params):
         disabled_packages = self.adb.listDisabledPackages()
-        json_string = json.dumps(disabled_packages)
+        return json.dumps(disabled_packages)
+
+    def getEnabledPackageList(self, param):
+        return json.dumps(self.adb.listEnabledPackages())
