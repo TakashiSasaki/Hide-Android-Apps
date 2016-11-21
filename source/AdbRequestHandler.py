@@ -43,11 +43,6 @@ class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
                     callback_function_name = x + "Callback"
                 json_string = self.__getattribute__(x)(params)
 
-        if "installed_packages" in params.keys():
-            adb = Adb.Adb()
-            packages = adb.listInstalledPackages()
-            json_string = json.dumps(packages)
-
         if "uninstalled_packages" in params.keys():
             adb = Adb.Adb()
             uninstalled_packages = adb.listUninstalledPackages()
@@ -123,3 +118,7 @@ class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
 
     def getEnabledPackageList(self, param):
         return json.dumps(self.adb.listEnabledPackages())
+
+    def getInstalledPackageList(self, param):
+        packages = self.adb.listInstalledPackages()
+        return json.dumps(packages)

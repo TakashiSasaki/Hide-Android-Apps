@@ -10,11 +10,11 @@ function updateInstalledPackages(){
     var table_element = getEmptyElement("installed_packages");
     document.getElementById("number_of_installed_packages").value = "updating";
     var script_element = document.createElement("script");
-    script_element.src = "/?installed_packages=1&callback=callbackInstalledPackages";
+    script_element.src = "/?getInstalledPackageList=1";
     document.body.appendChild(script_element);
 }
 
-function callbackInstalledPackages(json_object){
+function getInstalledPackageListCallback(json_object){
     window.localStorage.setItem("installed_packages", JSON.stringify(json_object));
     var table_element = document.getElementById("installed_packages");
     for (var k in json_object) {
