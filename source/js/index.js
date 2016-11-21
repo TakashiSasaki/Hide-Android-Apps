@@ -27,7 +27,7 @@ function index(){
         var input_element = document.getElementById("model");
         input_element.value = model;
     }
-    requestJsonP("getAdbVersion", "callbackGetAdbVersion");
+    setTimeout(requestJsonP, 1000, "getAdbVersion", "callbackGetAdbVersion");
 }
 
 
