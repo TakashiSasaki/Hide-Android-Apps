@@ -9,12 +9,6 @@ function updateUninstalledPackages(){
     document.body.appendChild(script_element);
 }
 
-function createTdElementWithTextContent(x){
-    var td = document.createElement("td");
-    td.textContent = x;
-    return td;
-}
-
 function callbackUninstalledPackages(json_object){
     window.localStorage.setItem("uninstalled_packages", JSON.stringify(json_object));
     var table_element = getEmptyElement("uninstalled_packages");

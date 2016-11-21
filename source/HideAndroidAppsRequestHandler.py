@@ -9,6 +9,7 @@ import Adb
 
 
 class HideAndroidAppsRequestHandler(http.server.SimpleHTTPRequestHandler):
+
     def do_GET(self):
         request = urllib.parse.urlparse(self.path)
         query = request.query
@@ -61,11 +62,29 @@ class HideAndroidAppsRequestHandler(http.server.SimpleHTTPRequestHandler):
             result_string = adb.unhidePackage(package)
             json_string = json.dumps({"result_string": result_string});
 
+        if "hide_package" in params.keys():
+            adb = Adb.Adb()
+            package = params["package"]
+            result_string = adb.hidePackage(package)
+            json_string = json.dumps({"result_string": result_string})
+
         if "enable_package" in params.keys():
             adb = Adb.Adb()
             package = params["package"]
             result_string = adb.enablePackage(package)
-            json_string = json.dumps({"result_string": result_string});
+            json_string = json.dumps({"result_string": result_string})
+
+        if "getAdbVersion" in params.keys():
+            adb = Adb.Adb()
+            json_string = json.dumps({"adbVersion": adb.adbVersion})
+
+        if "get_adb_path" in params.keys():
+            adb = Adb.Adb()
+            json_string = json.dumps({"adbPath": adb.adbPath})
+
+        if "get_devices" in params.keys():
+            adb = Adb.Adb()
+            json_string = json.dumps(adb.devices)
 
         if json_string is not None:
             callback_function_name = params["callback"][0]

@@ -49,6 +49,11 @@
                                                                    placeholder="# of third party packages"
                                                                    class="third_party_packages"></label>
 </fieldset>
+<fieldset>
+    <label>ADB version<input id="adb_version"></label>
+    <label>ADB path<input id="adb_path"></label>
+    <label>Attached Device<input id="attached_device"></label>
+</fieldset>
 <h1 class="processes">Processes
     <button onclick="updateProcesses()">update</button>
     <button onclick="copyProcesses()">copy</button>
@@ -83,6 +88,7 @@
 <h1 class="system_packages">System Packages
     <button onclick="updateSystemPackages()">update</button>
     <button onclick="copySystemPackages()">copy</button>
+    <button onclick="hideCheckedPackages('system_packages')">hide</button>
 </h1>
 <table id="system_packages" class="system_packages"></table>
 <h1 class="third_party_packages">Third Party Packages

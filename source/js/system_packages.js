@@ -12,13 +12,11 @@ function updateSystemPackages(){
 function callbackSystemPackages(json_object){
     var table_element = document.getElementById("system_packages");
     for (var k in json_object) {
-        var td_element_k = document.createElement("td");
-        td_element_k.textContent = k;
-        var td_element_v = document.createElement("td");
-        td_element_v.textContent = json_object[k];
         var tr_element = document.createElement("tr");
-        tr_element.appendChild(td_element_k);
-        tr_element.appendChild(td_element_v);
+        tr_element.appendChild(createTdElementWithTextContent(k));
+        tr_element.appendChild(createTdElementWithTextContent(json_object[k]));
+        tr_element.appendChild(createTdElementWithCheckbox());
+        tr_element.appendChild(createTdElementWithTextContent(loadPackageDescription(json_object[k])));
         table_element.appendChild(tr_element);
     }
     document.getElementById("number_of_system_packages").value = json_object.length;
@@ -41,3 +39,4 @@ function copySystemPackages(){
     });
     document.execCommand("copy");
 }
+
