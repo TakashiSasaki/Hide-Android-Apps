@@ -1,9 +1,6 @@
 import http.server
 import json
-import threading
-import time
 import urllib.parse
-import webbrowser
 
 import Adb
 
@@ -97,26 +94,3 @@ class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(body.encode())
         else:
             http.server.SimpleHTTPRequestHandler.do_GET(self)
-
-
-class AdbHttpServer(http.server.HTTPServer):
-    def __init__(self):
-        http.server.HTTPServer.__init__(self, ("", 10000), AdbRequestHandler)
-        self.toBeShutdown = False
-        self.timeout = 120
-
-    def handle_timeout(self):
-        http.server.HTTPServer.handle_timeout(self)
-        self.toBeShutdown = True
-
-
-def openBrowserThread():
-    time.sleep(1)
-    webbrowser.open("http://localhost:10000/html/index.html")
-
-
-if __name__ == "__main__":
-    threading.Thread(target=openBrowserThread).start()
-    hide_android_apps_http_server = AdbHttpServer()
-    while hide_android_apps_http_server.toBeShutdown is False:
-        hide_android_apps_http_server.handle_request()
