@@ -1,17 +1,42 @@
 import http.server
 import json
+import re
 import urllib.parse
 
 import Adb
 
 
 class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
+    __slots__ = ["methodsGet", "methodsPost"]
+    regexGet = re.compile("^get")
+    regexPost = re.compile("^post")
+
+    def __init__(self, request, client_address, server):
+        self.methodsGet = list()
+        self.methodsPost = list()
+        for x in self.__dir__():
+            try:
+                if hasattr(self.__getattribute__(x), "__func__"):
+                    if self.regexGet.match(x):
+                        self.methodsGet.append(x)
+                    elif self.regexPost.match(x):
+                        self.methodsPost.append(x)
+            except AttributeError:
+                pass
+        print(self.methodsGet)
+        print(self.methodsPost)
+        http.server.SimpleHTTPRequestHandler.__init__(self, request, client_address, server)
 
     def do_GET(self):
         request = urllib.parse.urlparse(self.path)
         query = request.query
         params = urllib.parse.parse_qs(query)
         json_string = None
+
+        for x in self.methodsGet:
+            if x in params.keys():
+                self.__getattribute__(x)(params)
+                return
 
         if "prop" in params.keys():
             adb = Adb.Adb()
@@ -94,3 +119,6 @@ class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(body.encode())
         else:
             http.server.SimpleHTTPRequestHandler.do_GET(self)
+
+    def getTest(self, params):
+        print(params)
