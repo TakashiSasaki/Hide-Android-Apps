@@ -4,12 +4,12 @@ function updateSystemPackages(){
         table_element.removeChild(table_element.firstChild);
     }
     document.getElementById("number_of_system_packages").value = "updating";
-    var script_element = document.createElement("script");
-    script_element.src = "/?system_packages=1&callback=callbackSystemPackages";
+    var script_element = document.createlement("script");
+    script_element.src = "/?getSystemPackageList=1";
     document.body.appendChild(script_element);
 }
 
-function callbackSystemPackages(json_object){
+function getSystemPackageListCallback(json_object){
     var table_element = document.getElementById("system_packages");
     for (var k in json_object) {
         var tr_element = document.createElement("tr");
