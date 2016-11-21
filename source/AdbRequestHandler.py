@@ -73,11 +73,6 @@ class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
             packages = adb.listThirdPartyPackages()
             json_string = json.dumps(packages)
 
-        if "processes" in params.keys():
-            adb = Adb.Adb()
-            processes = adb.listProcesses()
-            json_string = json.dumps(processes)
-
         if "unhide_package" in params.keys():
             adb = Adb.Adb()
             package = params["package"]
@@ -127,3 +122,7 @@ class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
 
     def getAdbPath(self, params):
         return json.dumps(self.adb.adbPath)
+
+    def getProcessList(self, params):
+        print(AdbRequestHandler.getProcessList)
+        return json.dumps(self.adb.listProcesses())

@@ -5,11 +5,11 @@ function updateProcesses(){
     }
     document.getElementById("number_of_running_processes").value = "updating";
     var script_element = document.createElement("script");
-    script_element.src = "/?processes=1&callback=callbackProcesses";
+    script_element.src = "/?getProcessList=1";
     document.body.appendChild(script_element);
 }
 
-function callbackProcesses(json_object){
+function getProcessListCallback(json_object){
     window.localStorage.setItem("processes", JSON.stringify(json_object));
     var table_element = document.getElementById("processes");
     for(var k in json_object) {
