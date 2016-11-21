@@ -30,7 +30,6 @@ function index(){
     requestJsonP("getAdbVersion", "callbackGetAdbVersion");
 }
 
-index();
 
 function hideCheckedPackages(table_element_id){
     var table_element = document.getElementById(table_element_id);
@@ -51,7 +50,7 @@ function callbackHidePackage(json_object){
 }
 
 function requestJsonP(method_name, callback_name, parameter_object){
-    script_src = "/" + method_name + "=1&callback=" + callback_name;
+    script_src = "/?" + method_name + "=1&callback=" + callback_name;
     for(var i in parameter_object){
         script_src += "&" + i + "=" + parameter_object[i];
     }
@@ -64,3 +63,5 @@ function callbackGetAdbVersion(s){
     var input = document.getElementById("adb_version");
     input.value = s;
 }
+
+index();
