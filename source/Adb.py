@@ -123,7 +123,9 @@ class Adb:
                     prop[m.group(1)] = m.group(2)
             except Exception as e:
                 pass
-        return prop
+        if len(prop) > 0:
+            return prop
+        raise RuntimeError(lines)
 
     def testNumberOfPackages(self):
         n_all_installed = len(self.listPackages())

@@ -4,7 +4,7 @@ function updateProp(){
         table_element.removeChild(table_element.firstChild);
     }
     var script_element = document.createElement("script");
-    script_element.src = "/?prop=1&callback=callbackProp";
+    script_element.src = "/?getPropDict=1&callback=callbackProp";
     document.body.appendChild(script_element);
 }
 

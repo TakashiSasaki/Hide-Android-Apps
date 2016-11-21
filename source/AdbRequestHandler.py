@@ -10,6 +10,7 @@ class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
     __slots__ = ["methodsGet", "methodsPost"]
     regexGet = re.compile("^get")
     regexPost = re.compile("^post")
+    adb = Adb.Adb()
 
     def __init__(self, request, client_address, server):
         self.methodsGet = list()
@@ -35,13 +36,7 @@ class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
 
         for x in self.methodsGet:
             if x in params.keys():
-                self.__getattribute__(x)(params)
-                return
-
-        if "prop" in params.keys():
-            adb = Adb.Adb()
-            prop = adb.getProp()
-            json_string = json.dumps(prop)
+                json_string = self.__getattribute__(x)(params)
 
         if "disabled_packages" in params.keys():
             adb = Adb.Adb()
@@ -122,3 +117,9 @@ class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
 
     def getTest(self, params):
         print(params)
+
+    def getPropDict(self, params):
+        print("AdbRequestHandler.getPropDict")
+        d = self.adb.getPropDict()
+        print(d)
+        return json.dumps(d)
