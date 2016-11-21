@@ -4,6 +4,7 @@
     <list default="true" id="f3588a03-0145-4d00-aed1-df38c4b5064a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AdbRequestHandler.py" afterPath="$PROJECT_DIR$/AdbRequestHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/third_party_packages.js" afterPath="$PROJECT_DIR$/js/third_party_packages.js" />
     </list>
     <ignored path="source.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,14 +36,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdbRequestHandler.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AdbRequestHandler.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AdbRequestHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="626">
-              <caret line="120" column="33" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="33" />
+            <state relative-caret-position="692">
+              <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="system_packages.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/system_packages.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -87,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="third_party_packages.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="third_party_packages.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/third_party_packages.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+            <state relative-caret-position="363">
+              <caret line="11" column="41" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -112,16 +123,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="602">
               <caret line="52" column="43" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="prop.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/prop.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="692">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -163,9 +164,7 @@
         <option value="$PROJECT_DIR$/html/index.css" />
         <option value="$PROJECT_DIR$/js/common.js" />
         <option value="$PROJECT_DIR$/js/database.js" />
-        <option value="$PROJECT_DIR$/js/third_party_packages.js" />
         <option value="$PROJECT_DIR$/js/uninstalled_packages.js" />
-        <option value="$PROJECT_DIR$/js/system_packages.js" />
         <option value="$PROJECT_DIR$/html/index.html" />
         <option value="$PROJECT_DIR$/HideAndroidAppsRequestHandler.py" />
         <option value="$PROJECT_DIR$/AdbHttpServer.py" />
@@ -178,7 +177,9 @@
         <option value="$PROJECT_DIR$/js/disabled_packages.js" />
         <option value="$PROJECT_DIR$/js/enabled_packages.js" />
         <option value="$PROJECT_DIR$/js/installed_packages.js" />
+        <option value="$PROJECT_DIR$/js/system_packages.js" />
         <option value="$PROJECT_DIR$/AdbRequestHandler.py" />
+        <option value="$PROJECT_DIR$/js/third_party_packages.js" />
       </list>
     </option>
   </component>
@@ -808,7 +809,21 @@
       <option name="project" value="LOCAL" />
       <updated>1479740074082</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="implemented getUninstalledPackageList">
+      <created>1479740258655</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1479740258655</updated>
+    </task>
+    <task id="LOCAL-00046" summary="implemented getSystemPackageList">
+      <created>1479740837736</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1479740837736</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -847,8 +862,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="background color" />
-    <MESSAGE value="reformatted index.html" />
     <MESSAGE value="implemented &quot;reload installed packages&quot; button" />
     <MESSAGE value="implemented reloading installed package descriptions" />
     <MESSAGE value="implemented reloadUninstalledPackages" />
@@ -872,7 +885,9 @@
     <MESSAGE value="implemented getEnabledPackageList" />
     <MESSAGE value="implemented getEnabledPackageListCallback" />
     <MESSAGE value="implemented getInstalledPackageList" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented getInstalledPackageList" />
+    <MESSAGE value="implemented getUninstalledPackageList" />
+    <MESSAGE value="implemented getSystemPackageList" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented getSystemPackageList" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -901,6 +916,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="99">
           <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1158,13 +1174,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/system_packages.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -1209,14 +1218,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="602">
           <caret line="52" column="43" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/third_party_packages.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -1271,13 +1272,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/system_packages.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AdbRequestHandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="626">
-          <caret line="120" column="33" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="33" />
+        <state relative-caret-position="692">
+          <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/third_party_packages.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="11" column="41" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>

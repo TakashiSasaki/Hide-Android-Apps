@@ -5,11 +5,11 @@ function updateThirdPartyPackages(){
     }
     document.getElementById("number_of_third_party_packages").value = "updating";
     var script_element = document.createElement("script");
-    script_element.src = "/?third_party_packages=1&callback=callbackThirdPartyPackages";
+    script_element.src = "/?getThirdPartyPackageList=1";
     document.body.appendChild(script_element);
 }
 
-function callbackThirdPartyPackages(json_object){
+function getThirdPartyPackageListCallback(json_object){
     var table_element = document.getElementById("third_party_packages")
     for (var k in json_object) {
         var td_element_k = document.createElement("td");
