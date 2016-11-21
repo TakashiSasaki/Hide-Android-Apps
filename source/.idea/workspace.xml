@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3588a03-0145-4d00-aed1-df38c4b5064a" name="Default" comment="supported SWR50">
+    <list default="true" id="f3588a03-0145-4d00-aed1-df38c4b5064a" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/HideAndroidAppsRequestHandler.py" afterPath="$PROJECT_DIR$/AdbRequestHandler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HideAndroidAppsRequestHandler.py" afterPath="$PROJECT_DIR$/HideAndroidAppsRequestHandler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/index.html" afterPath="$PROJECT_DIR$/html/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/index.js" afterPath="$PROJECT_DIR$/js/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/system_packages.js" afterPath="$PROJECT_DIR$/js/system_packages.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/uninstalled_packages.js" afterPath="$PROJECT_DIR$/js/uninstalled_packages.js" />
     </list>
     <ignored path="source.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,12 +53,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HideAndroidAppsRequestHandler.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/HideAndroidAppsRequestHandler.py">
+      <file leaf-file-name="AdbRequestHandler.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AdbRequestHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="25" column="58" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="58" />
-              <folding />
+            <state relative-caret-position="846">
+              <caret line="122" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -175,6 +173,7 @@
         <option value="$PROJECT_DIR$/html/index.html" />
         <option value="$PROJECT_DIR$/js/index.js" />
         <option value="$PROJECT_DIR$/HideAndroidAppsRequestHandler.py" />
+        <option value="$PROJECT_DIR$/AdbRequestHandler.py" />
       </list>
     </option>
   </component>
@@ -456,7 +455,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="source" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HideAndroidAppsRequestHandler.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\佐々木隆志\Desktop\Hide Android Apps\source\AdbRequestHandler.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -666,7 +665,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479204865999</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="add getAdbVersion and others">
+      <created>1479720390431</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1479720390431</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -704,7 +710,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="implemented getProp function" />
     <MESSAGE value="implemented update button for disabled_packages" />
     <MESSAGE value="implemented update button for uninstalled packages" />
     <MESSAGE value="implemented processes button" />
@@ -729,7 +734,8 @@
     <MESSAGE value="bug fix in enableCheckedPackages" />
     <MESSAGE value="bug fix in reloadProcesses" />
     <MESSAGE value="supported SWR50" />
-    <option name="LAST_COMMIT_MESSAGE" value="supported SWR50" />
+    <MESSAGE value="add getAdbVersion and others" />
+    <option name="LAST_COMMIT_MESSAGE" value="add getAdbVersion and others" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -845,11 +851,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HideAndroidAppsRequestHandler.py">
+    <entry file="file://$PROJECT_DIR$/AdbRequestHandler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="627">
           <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
-          <folding />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -922,11 +930,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HideAndroidAppsRequestHandler.py">
+    <entry file="file://$PROJECT_DIR$/AdbRequestHandler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1120,11 +1130,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HideAndroidAppsRequestHandler.py">
+    <entry file="file://$PROJECT_DIR$/AdbRequestHandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="25" column="58" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="58" />
-          <folding />
+        <state relative-caret-position="846">
+          <caret line="122" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

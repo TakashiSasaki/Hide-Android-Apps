@@ -8,7 +8,7 @@ import webbrowser
 import Adb
 
 
-class HideAndroidAppsRequestHandler(http.server.SimpleHTTPRequestHandler):
+class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
 
     def do_GET(self):
         request = urllib.parse.urlparse(self.path)
@@ -99,9 +99,9 @@ class HideAndroidAppsRequestHandler(http.server.SimpleHTTPRequestHandler):
             http.server.SimpleHTTPRequestHandler.do_GET(self)
 
 
-class HideAndroidAppsHttpServer(http.server.HTTPServer):
+class AdbHttpServer(http.server.HTTPServer):
     def __init__(self):
-        http.server.HTTPServer.__init__(self, ("", 10000), HideAndroidAppsRequestHandler)
+        http.server.HTTPServer.__init__(self, ("", 10000), AdbRequestHandler)
         self.toBeShutdown = False
         self.timeout = 120
 
@@ -117,6 +117,6 @@ def openBrowserThread():
 
 if __name__ == "__main__":
     threading.Thread(target=openBrowserThread).start()
-    hide_android_apps_http_server = HideAndroidAppsHttpServer()
+    hide_android_apps_http_server = AdbHttpServer()
     while hide_android_apps_http_server.toBeShutdown is False:
         hide_android_apps_http_server.handle_request()
