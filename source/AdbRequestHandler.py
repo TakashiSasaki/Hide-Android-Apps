@@ -91,10 +91,6 @@ class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
             result_string = adb.enablePackage(package)
             json_string = json.dumps({"result_string": result_string})
 
-        if "get_adb_path" in params.keys():
-            adb = Adb.Adb()
-            json_string = json.dumps({"adbPath": adb.adbPath})
-
         if "get_devices" in params.keys():
             adb = Adb.Adb()
             json_string = json.dumps(adb.devices)
@@ -122,3 +118,6 @@ class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
 
     def getAdbVersion(self, params):
         return json.dumps(self.adb.adbVersion)
+
+    def getAdbPath(self, params):
+        return json.dumps(self.adb.adbPath)

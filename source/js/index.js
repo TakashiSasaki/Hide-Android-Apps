@@ -27,7 +27,8 @@ function index(){
         var input_element = document.getElementById("model");
         input_element.value = model;
     }
-    setTimeout(requestJsonP, 1000, "getAdbVersion", "callbackGetAdbVersion");
+    setTimeout(requestJsonP, 1000, "getAdbVersion");
+    setTimeout(requestJsonP, 1000, "getAdbPath");
 }
 
 
@@ -49,8 +50,8 @@ function callbackHidePackage(json_object){
     alert(json_object.result_string);
 }
 
-function requestJsonP(method_name, callback_name, parameter_object){
-    script_src = "/?" + method_name + "=1&callback=" + callback_name;
+function requestJsonP(method_name, parameter_object){
+    script_src = "/?" + method_name + "=1&callback=" + method_name+"Callback";
     for(var i in parameter_object){
         script_src += "&" + i + "=" + parameter_object[i];
     }
@@ -59,8 +60,13 @@ function requestJsonP(method_name, callback_name, parameter_object){
     document.body.appendChild(script);
 }
 
-function callbackGetAdbVersion(s){
+function getAdbVersionCallback(s){
     var input = document.getElementById("adb_version");
+    input.value = s;
+}
+
+function getAdbPathCallback(s){
+    var input = document.getElementById("adb_path");
     input.value = s;
 }
 
