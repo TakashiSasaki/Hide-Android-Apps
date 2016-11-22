@@ -4,16 +4,17 @@ function createTdElementWithTextContent(x){
     return td;
 }
 
-function createTdElementWithCheckbox(value){
+function createTdElementWithCheckbox(checked, value){
     var td = document.createElement("td");
     var input = document.createElement("input");
     input.type = "checkbox";
     input.value = value;
+    input.checked = checked;
     td.appendChild(input);
     return td;
 }
 
-function createTdElementWithButton(value, text, onclick){
+function createTdElementWithButton(text, onclick, value){
     var td = document.createElement("td");
     var button = document.createElement("button");
     button.value = value;

@@ -21,10 +21,10 @@ function getInstalledPackageListCallback(json_object){
         var tr_element = document.createElement("tr");
         tr_element.appendChild(createTdElementWithTextContent(k));
         tr_element.appendChild(createTdElementWithTextContent(json_object[k]));
-        tr_element.appendChild(createTdElementWithCheckbox(json_object[k]));
+        tr_element.appendChild(createTdElementWithCheckbox(false, json_object[k]));
         tr_element.appendChild(createTdElementWithTextContent(loadPackageDescription(json_object[k])));
-        tr_element.appendChild(createTdElementWithButton(json_object[k], "hide", "hidePackage(this)"));
-        tr_element.appendChild(createTdElementWithButton(json_object[k], "unhide", "unhidePackage(this)"));
+        tr_element.appendChild(createTdElementWithButton("hide", "hidePackage(this)", json_object[k]));
+        tr_element.appendChild(createTdElementWithButton("unhide", "unhidePackage(this)", json_object[k]));
         table_element.appendChild(tr_element);
     }
     document.getElementById("number_of_installed_packages").value = json_object.length;
