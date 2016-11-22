@@ -37,8 +37,8 @@ function unhidePackages(){
      }
 }
 
-function unhidePackageCallback(json_object){
-    alert(json_object.result_string);
+function unhidePackageCallback(result_string){
+    alert(result_string);
 }
 
 function reloadUninstalledPackages(){
