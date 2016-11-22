@@ -4,11 +4,22 @@ function createTdElementWithTextContent(x){
     return td;
 }
 
-function createTdElementWithCheckbox(){
+function createTdElementWithCheckbox(value){
     var td = document.createElement("td");
     var input = document.createElement("input");
     input.type = "checkbox";
+    input.value = value;
     td.appendChild(input);
+    return td;
+}
+
+function createTdElementWithButton(value, text, onclick){
+    var td = document.createElement("td");
+    var button = document.createElement("button");
+    button.value = value;
+    button.textContent = text;
+    button.onclick = onclick;
+    td.appendChild(button);
     return td;
 }
 
