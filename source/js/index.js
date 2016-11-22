@@ -19,7 +19,7 @@ function createTdElementWithButton(text, onclick, value){
     var button = document.createElement("button");
     button.value = value;
     button.textContent = text;
-    button.onclick = onclick;
+    button.addEventListener("click", function(){onclick.call(null, button);}, value);
     td.appendChild(button);
     return td;
 }
@@ -52,14 +52,20 @@ function hideCheckedPackages(table_element_id){
         var input = tr.children[2].firstChild;
         if(input.checked == true) {
             var script = document.createElement("script");
-            script.src="/?hide_package=1&package=" + package_name + "&callback=callbackHidePackage";
+            script.src="/?hidePackage=1&package=" + package_name;
             document.body.appendChild(script);
         }
     }
 }
 
-function callbackHidePackage(json_object){
-    alert(json_object.result_string);
+function hidePackage(button){
+    var script = document.createElement("script");
+    script.src="/?hidePackage=1&package=" + button.value;
+    document.body.appendChild(script);
+}
+
+function hidePackageCallback(result_string){
+    alert(result_string);
 }
 
 function requestJsonP(method_name, parameter_object){

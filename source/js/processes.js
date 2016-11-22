@@ -23,7 +23,7 @@ function getProcessListCallback(json_object){
         } else {
             tr_element.appendChild(createTdElementWithTextContent(""));
         }
-        tr_element.appendChild(createTdElementWithButton("hide", "hidePackage(this)", json_object[k]));
+        tr_element.appendChild(createTdElementWithButton("hide", hidePackage, json_object[k]));
         table_element.appendChild(tr_element);
     }
     document.getElementById("number_of_running_processes").value = json_object.length;
