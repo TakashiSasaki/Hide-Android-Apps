@@ -8,7 +8,7 @@ class AdbHttpServer(http.server.HTTPServer):
     def __init__(self):
         http.server.HTTPServer.__init__(self, ("", 10000), AdbRequestHandler.AdbRequestHandler)
         self.toBeShutdown = False
-        self.timeout = 120
+        self.timeout = 200
 
     def handle_timeout(self):
         http.server.HTTPServer.handle_timeout(self)
