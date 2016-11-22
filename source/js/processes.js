@@ -14,18 +14,16 @@ function getProcessListCallback(json_object){
     var table_element = document.getElementById("processes");
     for(var k in json_object) {
         var tr_element = document.createElement("tr");
-        var td_element_k = document.createElement("td");
-        td_element_k.textContent = k;
-        tr_element.appendChild(td_element_k);
-        var td_element_v = document.createElement("td");
-        td_element_v.textContent = json_object[k];
-        tr_element.appendChild(td_element_v);
-        var td_element_description = document.createElement("td");
+        tr_element.appendChild(createTdElementWithTextContent(k));
+        tr_element.appendChild(createTdElementWithTextContent(json_object[k]));
         var json_string = window.localStorage.getItem(json_object[k]);
         if(json_string){
-            td_element_description.textContent = JSON.parse(json_string)[4];
+            var description = JSON.parse(json_string)[4];
+            tr_element.appendChild(createTdElementWithTextContent(description));
+        } else {
+            tr_element.appendChild(createTdElementWithTextContent(""));
         }
-        tr_element.appendChild(td_element_description);
+        tr_element.appendChild(createTdElementWithButton("hide", "hidePackage(this)", json_object[k]));
         table_element.appendChild(tr_element);
     }
     document.getElementById("number_of_running_processes").value = json_object.length;
