@@ -65,13 +65,18 @@
 <h1 class="installed_packages">Installed Packages
     <button onclick="updateInstalledPackages()">update</button>
     <button onclick="reloadInstalledPackages()">reload</button>
+    <button onclick="checkAll(this)" value="installed_packages">check all</button>
+    <button onclick="uncheckAll(this)" value="installed_packages">uncheck all</button>
 </h1>
 <table id="installed_packages" class="installed_packages"></table>
 
 <h1 class="uninstalled_packages">Uninstalled (hidden) Packages
     <button onclick="updateUninstalledPackages()">update</button>
-    <button onclick="checkAllUninstalledPackages()">check all</button>
-    <button onclick="unhidePackages()">unhide checked packages</button>
+    <button onclick="checkAll()">check all</button>
+    <button onclick="uncheckAll(this)" name="uninstalled_packages" value="uninstalled_packages">uncheck all</button>
+    <button onclick="unhidePackages(this)" name="uninstalled_packages" value="uninstalled_packages">unhide checked
+        packages
+    </button>
     <button onclick="reloadUninstalledPackages()">reload</button>
 </h1>
 <table id="uninstalled_packages" class="uninstalled_packages"></table>
@@ -113,5 +118,6 @@
 <script src="../js/system_packages.js"></script>
 <script src="../js/processes.js"></script>
 <script src="../js/database.js"></script>
+<script src="../js/checkbox.js"/>
 </body>
 </html>
