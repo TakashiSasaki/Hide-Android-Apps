@@ -16,7 +16,7 @@ function getProcessListCallback(json_object){
         var tr_element = document.createElement("tr");
         tr_element.appendChild(createTdElementWithTextContent(k));
         tr_element.appendChild(createTdElementWithTextContent(json_object[k]));
-        var json_string = window.localStorage.getItem(json_object[k]);
+        var json_string = window.localStorage.getItem(/^[^:]+/.exec(json_object[k]));
         if(json_string){
             var description = JSON.parse(json_string)[4];
             tr_element.appendChild(createTdElementWithTextContent(description));

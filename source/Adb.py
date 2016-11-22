@@ -97,7 +97,7 @@ class Adb:
 
     def listProcesses(self):
         lines = self.exec(["shell", "ps"])
-        p = re.compile("(u\w+)\s+\d+\s+\d+\s+\d+\s+\d+\s+\w+\s+\w+\s+\w+\s+(\S+)")
+        p = re.compile("^(\w+)\s+\d+\s+\d+\s+\d+\s+\d+\s+\w+\s+\w+\s+\w+\s+(\w+\.\S+)")
         process_names = []
         for line in lines:
             try:
