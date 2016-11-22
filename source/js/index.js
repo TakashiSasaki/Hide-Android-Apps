@@ -59,8 +59,9 @@ function hideCheckedPackages(table_element_id){
 }
 
 function hidePackage(button){
+    var package_name = /^[^:]+/.exec(button.value);
     var script = document.createElement("script");
-    script.src="/?hidePackage=1&package=" + button.value;
+    script.src="/?hidePackage=1&package=" + package_name;
     document.body.appendChild(script);
 }
 
