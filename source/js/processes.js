@@ -4,13 +4,19 @@ function updateProcesses(){
         table_element.removeChild(table_element.firstChild);
     }
     document.getElementById("number_of_running_processes").value = "updating";
-    var script_element = document.createElement("script");
-    script_element.src = "/?getProcessList=1";
-    document.body.appendChild(script_element);
+    requestJsonP("getProcessList", null, function(){
+        var s = window.localStorage.getItem("getProcessList");
+        var o = JSON.parse(s);
+        alert("Reloading old data because of error.");
+        getProcessListCallback(o);
+    });
+    //var script_element = document.createElement("script");
+    //script_element.src = "/?getProcessList=1";
+    //document.body.appendChild(script_element);
 }
 
 function getProcessListCallback(json_object){
-    window.localStorage.setItem("processes", JSON.stringify(json_object));
+    window.localStorage.setItem("getProcessList", JSON.stringify(json_object));
     var table_element = document.getElementById("processes");
     for(var k in json_object) {
         var tr_element = document.createElement("tr");
