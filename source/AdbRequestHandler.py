@@ -13,7 +13,7 @@ class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
     adb = Adb.Adb()
 
     def __init__(self, request, client_address, server):
-        self.methodsGet = ["unhidePackage", "hidePackage"]
+        self.methodsGet = ["unhidePackage", "hidePackage", "enablePackage"]
         self.methodsPost = list()
         for x in self.__dir__():
             try:
@@ -42,12 +42,6 @@ class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
                 else:
                     callback_function_name = x + "Callback"
                 json_string = self.__getattribute__(x)(params)
-
-        if "enable_package" in params.keys():
-            adb = Adb.Adb()
-            package = params["package"]
-            result_string = adb.enablePackage(package)
-            json_string = json.dumps({"result_string": result_string})
 
         if "get_devices" in params.keys():
             adb = Adb.Adb()
@@ -115,4 +109,9 @@ class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
     def hidePackage(self, param):
         package = param["package"]
         result_string = self.adb.hidePackage(package)
+        return json.dumps(result_string)
+
+    def enablePackage(self, params):
+        package = params["package"]
+        result_string = self.adb.enablePackage(package)
         return json.dumps(result_string)

@@ -19,7 +19,7 @@ function createTdElementWithButton(text, onclick, value){
     var button = document.createElement("button");
     button.value = value;
     button.textContent = text;
-    button.addEventListener("click", function(){onclick.call(null, button);}, value);
+    button.addEventListener("click", function(){onclick.call(button, button);}, value);
     td.appendChild(button);
     return td;
 }

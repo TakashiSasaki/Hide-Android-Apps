@@ -18,8 +18,10 @@ function getDisabledPackageListCallback(json_object){
         //var td_element_k = document.createElement("td");
         //td_element_k.textContent = k;
         //tr_element.appendChild(td_element_k);
-        tr_element.appendChild(createTdElementWithTextContext(k));
+        tr_element.appendChild(createTdElementWithTextContent(k));
+        tr_element.appendChild(createTdElementWithTextContent(json_object[k]));
         tr_element.appendChild(createTdElementWithCheckbox());
+        tr_element.appendChild(createTdElementWithButton("enable", enablePackage, json_object[k]));
         //var td_element_v = document.createElement("td");
         //td_element_v.textContent = json_object[k];
         //tr_element.appendChild(td_element_v);
@@ -28,7 +30,7 @@ function getDisabledPackageListCallback(json_object){
         //input_element.type="checkbox";
         //td_element_checkbox.appendChild(input_element);
         //tr_element.appendChild(td_element_checkbox);
-        //table_element.appendChild(tr_element);
+        table_element.appendChild(tr_element);
     }
     document.getElementById("number_of_disabled_packages").value=json_object.length;
 }
@@ -47,6 +49,10 @@ function enableCheckedPackages(package_name){
     }
 }
 
-function callbackEnablePackage(json_object){
-    alert(json_object.result_string);
+function enablePackage(button){
+    requestJsonP("enablePackage", {package: this.value});
+}
+
+function enablePackageCallback(result_string){
+    alert(result_string);
 }
