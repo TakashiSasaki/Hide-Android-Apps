@@ -19,6 +19,7 @@ function getUninstalledPackageListCallback(json_object){
         tr_element.appendChild(createTdElementWithTextContent(json_object[k]));
         tr_element.appendChild(createTdElementWithCheckbox());
         tr_element.appendChild(createTdElementWithTextContent(loadPackageDescription(json_object[k])));
+        tr_element.appendChild(createTdElementWithButton("unhide", unhidePackage, json_object[k]));
         table_element.appendChild(tr_element);
     }
     document.getElementById("number_of_uninstalled_packages").value = json_object.length;
@@ -30,15 +31,12 @@ function unhidePackages(){
         var input_element = table_element.children[i].children[2].firstChild;
         if(input_element.checked == true) {
           var td = table_element.children[i].children[1];
-          var script_element = document.createElement("script");
-          script_element.src ="/?unhidePackage=1&package=" + td.textContent;
-          document.body.appendChild(script_element);
+          unhidePackage(td.textContent);
+          //var script_element = document.createElement("script");
+          //script_element.src ="/?unhidePackage=1&package=" + td.textContent;
+          //document.body.appendChild(script_element);
         }
      }
-}
-
-function unhidePackageCallback(result_string){
-    alert(result_string);
 }
 
 function reloadUninstalledPackages(){

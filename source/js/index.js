@@ -19,7 +19,7 @@ function createTdElementWithButton(text, onclick, value){
     var button = document.createElement("button");
     button.value = value;
     button.textContent = text;
-    button.addEventListener("click", function(){onclick.call(button, button);}, value);
+    button.addEventListener("click", function(){onclick.call(button);}, value);
     td.appendChild(button);
     return td;
 }
@@ -56,17 +56,6 @@ function hideCheckedPackages(table_element_id){
             document.body.appendChild(script);
         }
     }
-}
-
-function hidePackage(button){
-    var package_name = /^[^:]+/.exec(button.value);
-    var script = document.createElement("script");
-    script.src="/?hidePackage=1&package=" + package_name;
-    document.body.appendChild(script);
-}
-
-function hidePackageCallback(result_string){
-    alert(result_string);
 }
 
 function requestJsonP2(script_src, error_handler){

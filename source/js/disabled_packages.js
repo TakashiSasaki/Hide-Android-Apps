@@ -22,6 +22,8 @@ function getDisabledPackageListCallback(json_object){
         tr_element.appendChild(createTdElementWithTextContent(json_object[k]));
         tr_element.appendChild(createTdElementWithCheckbox());
         tr_element.appendChild(createTdElementWithButton("enable", enablePackage, json_object[k]));
+        tr_element.appendChild(createTdElementWithButton("unhide", unhidePackage, json_object[k]));
+        tr_element.appendChild(createTdElementWithButton("hide", hidePackage, json_object[k]));
         //var td_element_v = document.createElement("td");
         //td_element_v.textContent = json_object[k];
         //tr_element.appendChild(td_element_v);
@@ -47,12 +49,4 @@ function enableCheckedPackages(package_name){
             document.body.appendChild(script_element);
         }
     }
-}
-
-function enablePackage(button){
-    requestJsonP("enablePackage", {package: this.value});
-}
-
-function enablePackageCallback(result_string){
-    alert(result_string);
 }

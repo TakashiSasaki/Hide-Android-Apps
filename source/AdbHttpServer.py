@@ -16,7 +16,7 @@ class AdbHttpServer(http.server.HTTPServer):
 
 
 def openBrowserThread():
-    time.sleep(100)
+    time.sleep(2)
     webbrowser.open("http://localhost:10000/html/index.html")
 
 
