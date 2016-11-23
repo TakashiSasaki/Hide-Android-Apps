@@ -10,9 +10,6 @@ function updateProcesses(){
         alert("Reloading old data because of error.");
         getProcessListCallback(o);
     });
-    //var script_element = document.createElement("script");
-    //script_element.src = "/?getProcessList=1";
-    //document.body.appendChild(script_element);
 }
 
 function getProcessListCallback(json_object){
@@ -50,6 +47,27 @@ function copyProcesses(){
     });
     document.execCommand("copy");
 }
+
+function copyTableToClipboard(button){
+    var table_name = button.value;
+    alert(table_name);
+    var table_element = document.getElementById(table_name);
+    //var model = document.getElementById("model").value;
+    text_to_copy = "";
+    for(var i=0; i<table_element.rows.length; ++i){
+        //var tr_element = table_element.rows[i];
+        for(var j=0; j<table_element.rows[i].cells.length; ++j){
+            text_to_copy += table_element.rows[i].cells[j].textContent + "\t";
+        }
+        text_to_copy +="\n";
+    }
+    window.addEventListener("copy", function(e){
+        //alert(e.clipboardData);
+        e.clipboardData.setData("text", text_to_copy);
+    });
+    document.execCommand("copy");
+}
+
 
 function reloadProcesses(){
      var json_string = window.localStorage.getItem("processes");
