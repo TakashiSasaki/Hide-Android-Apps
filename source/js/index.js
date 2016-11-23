@@ -69,17 +69,21 @@ function hidePackageCallback(result_string){
     alert(result_string);
 }
 
-function requestJsonP(method_name, parameter_object, error_handler){
-    script_src = "/?" + method_name + "=1&callback=" + method_name+"Callback";
-    for(var i in parameter_object){
-        script_src += "&" + i + "=" + parameter_object[i];
-    }
+function requestJsonP2(script_src, error_handler){
     var script = document.createElement("script");
     script.src = script_src;
     if(error_handler){
         script.addEventListener("error", error_handler);
     }
     document.body.appendChild(script);
+}
+
+function requestJsonP(method_name, parameter_object, error_handler){
+    script_src = "/?" + method_name + "=1&callback=" + method_name+"Callback";
+    for(var i in parameter_object){
+        script_src += "&" + i + "=" + parameter_object[i];
+    }
+    requestJsonP2(script_src, error_handler);
 }
 
 function getAdbVersionCallback(s){

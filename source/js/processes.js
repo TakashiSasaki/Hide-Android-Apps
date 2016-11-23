@@ -32,7 +32,7 @@ function getProcessListCallback(json_object){
     document.getElementById("number_of_running_processes").value = json_object.length;
 }
 
-function copyProcesses(){
+/*function copyProcesses(){
     var table_element = document.getElementById("processes");
     var model = document.getElementById("model").value;
     text_to_copy = "";
@@ -46,7 +46,7 @@ function copyProcesses(){
         e.clipboardData.setData("text", text_to_copy);
     });
     document.execCommand("copy");
-}
+}*/
 
 function copyTableToClipboard(button){
     var table_name = button.value;
