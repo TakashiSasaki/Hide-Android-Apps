@@ -1,3 +1,4 @@
+import logging
 import os
 import re
 import subprocess
@@ -7,11 +8,15 @@ import utils
 KUSO_AU = "https://docs.google.com/spreadsheets/d/1fgjgo91icfwia12ozOj67etb2ubi10bHM9VDoFeVgxY/pub?gid=11078667&single=true&output=csv"
 KUSO_SONY = "https://docs.google.com/spreadsheets/d/1fgjgo91icfwia12ozOj67etb2ubi10bHM9VDoFeVgxY/pub?gid=309729536&single=true&output=csv"
 
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+logger.addHandler(logging.StreamHandler())
 
 class Adb:
-    __slots__ = {"adbVersion", "adbPath", "devices"}
+    __slots__ = {"adbVersion", "adbPath", "devices", "logger"}
 
-    def __init__(self):
+    def __init__(self, *, logger=logger):
+        self.logger = logger
         current_directory = os.getcwd()
         candidates = list()
         candidates.append(current_directory + os.path.sep + "adb.exe")
@@ -28,6 +33,7 @@ class Adb:
                 self.adbPath = candidate
             except Exception as e:
                 pass
+        self.logger.debug("Adb initialized")
 
     def enumerateDevices(self):
         lines = self.exec(["devices"])
@@ -96,7 +102,9 @@ class Adb:
         return self.exec(["shell", "pm", "disable", package_name])
 
     def listProcesses(self):
+        self.logger.debug("listProcesses starts.")
         lines = self.exec(["shell", "ps"])
+        self.logger.debug("'adb shell ps' finished")
         p = re.compile("^(\w+)\s+\d+\s+\d+\s+\d+\s+\d+\s+\w+\s+\w+\s+\w+\s+(\w+\.\S+)")
         process_names = []
         for line in lines:
