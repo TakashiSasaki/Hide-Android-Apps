@@ -180,4 +180,4 @@ def fetchPackageNames(url):
 
 if __name__ == "__main__":
     adb = Adb()
-    print(adb.getDumpSysSubCommands())
+    print(adb.getDumpsysSubCommandList())
