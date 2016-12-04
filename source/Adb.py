@@ -141,6 +141,25 @@ class Adb:
         print("System (pm list packages -s):", n_system)
         print("Third Party (pm list packages -3):", n_third_party)
 
+    def getDumpsysSubCommandList(self):
+        lines = self.exec(["shell", "dumpsys | grep 'DUMP OF SERVICE'"])
+        p = re.compile("^DUMP OF SERVICE (\w+)")
+        subcommands = []
+        for line in lines:
+            try:
+                m = p.match(line)
+                if m is None:
+                    continue
+                subcommand = m.group(1)
+                subcommands.append(subcommand)
+            except Exception as e:
+                pass
+        return subcommands
+
+    def execDumpsys(self, subcommand):
+        lines = self.exec(["shell", "dumpsys | grep 'DUMP OF SERVICE'"])
+        return lines
+
 def fetchPackageNames(url):
     import urllib.request
     import http.client
@@ -161,22 +180,4 @@ def fetchPackageNames(url):
 
 if __name__ == "__main__":
     adb = Adb()
-    adb.testNumberOfPackages()
-    exit()
-
-    disabled_packages = adb.listDisabledPackages()
-    for x in disabled_packages:
-        adb.enablePackage(x)
-    installed_packages = adb.listPackages()
-    kuso_au = fetchPackageNames(KUSO_AU)
-    for x in kuso_au:
-        if x in installed_packages:
-            adb.hidePackage(x)
-    kuso_sony = fetchPackageNames(KUSO_SONY)
-    for x in kuso_sony:
-        if x in installed_packages:
-            adb.hidePackage(x)
-    processes = adb.listProcesses()
-    print(processes)
-
-
+    print(adb.getDumpSysSubCommands())
