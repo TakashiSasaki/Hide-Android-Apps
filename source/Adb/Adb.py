@@ -22,6 +22,7 @@ class Adb:
         candidates.append(current_directory + os.path.sep + "adb.exe")
         candidates.append(current_directory + os.path.sep + ".." + os.path.sep + "adb.exe")
         candidates.append(current_directory + os.path.sep + ".." + os.path.sep + "adb" + os.path.sep + "adb.exe")
+        candidates.append(current_directory + os.path.sep + ".." + os.path.sep + ".." + os.path.sep + "adb" + os.path.sep + "adb.exe")
         for candidate in candidates:
             try:
                 completed_process = subprocess.run([candidate], stderr = subprocess.STDOUT, stdout=subprocess.PIPE)
@@ -229,3 +230,4 @@ if __name__ == "__main__":
     adb = Adb()
     print(adb.getWmDensity())
     print(adb.getWmSize())
+    print(adb.listProcesses())

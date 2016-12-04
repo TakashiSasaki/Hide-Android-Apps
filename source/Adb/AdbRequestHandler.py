@@ -2,18 +2,24 @@ import http.server
 import json
 import re
 import urllib.parse
+import logging
 
 import Adb
 
+logger = logging.getLogger(__name__)
+logger.addHandler(logging.StreamHandler())
+logger.setLevel(logging.DEBUG)
 
 class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
-    __slots__ = ["methodsGet", "methodsPost"]
+    __slots__ = ["methodsGet", "methodsPost", "logger"]
     regexGet = re.compile("^get")
     regexPost = re.compile("^post")
     adb = Adb.Adb()
 
-    def __init__(self, request, client_address, server):
-        self.methodsGet = ["unhidePackage", "hidePackage", "enablePackage"]
+    def __init__(self, request, client_address, server, *, logger=logger):
+        self.logger = logger
+        self.logger.debug("AdbRequestHandler inititialized.")
+        self.methodsGet = ["unhidePackage", "hidePackage", "enablePackage", "disablePackage"]
         self.methodsPost = list()
         for x in self.__dir__():
             try:
@@ -114,4 +120,10 @@ class AdbRequestHandler(http.server.SimpleHTTPRequestHandler):
     def enablePackage(self, params):
         package = params["package"]
         result_string = self.adb.enablePackage(package)
+        return json.dumps(result_string)
+
+    def disablePackage(self, params):
+        self.logger.debug("disablePackage is called.")
+        package = params["package"]
+        result_string = self.adb.disablePackage(package)
         return json.dumps(result_string)
