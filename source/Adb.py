@@ -157,8 +157,47 @@ class Adb:
         return subcommands
 
     def execDumpsys(self, subcommand):
-        lines = self.exec(["shell", "dumpsys | grep 'DUMP OF SERVICE'"])
-        return lines
+        pass
+
+    def getWmSize(self):
+        lines = self.exec(["shell", "wm size"])
+        physical_size_regex = re.compile("Physical size:\s+(\d+)x(\d+)")
+        override_size_regex = re.compile("Override size:\s+(\d+)x(\d+)")
+        display_size = {}
+        for line in lines:
+            try:
+                m1 = physical_size_regex.match(line)
+                if m1 is not None:
+                    physical_x = m1.group(1)
+                    physical_y = m1.group(2)
+                    display_size["physicalX"] = int(physical_x)
+                    display_size["physicalY"] = int(physical_y)
+                m2 = override_size_regex.match(line)
+                if m2 is not None:
+                    override_x = m2.group(1)
+                    override_y = m2.group(2)
+                    display_size["overrideX"] = int(override_x)
+                    display_size["overrideY"] = int(override_y)
+            except Exception as e:
+                pass
+        return display_size
+
+    def getWmDensity(self):
+        lines = self.exec(["shell", "wm density"])
+        physical_density_regex = re.compile("Physical density:\s+(\d+)")
+        override_density_regex = re.compile("Override density:\s+(\d+)")
+        density = {}
+        for line in lines:
+            try:
+                m1 = physical_density_regex.match(line)
+                if m1 is not None:
+                    density["physical"] = int(m1.group(1))
+                m2 = override_density_regex.match(line)
+                if m2 is not None:
+                    density["override"] = int(m2.group(1))
+            except Exception as e:
+                pass
+        return density
 
 def fetchPackageNames(url):
     import urllib.request
@@ -180,4 +219,5 @@ def fetchPackageNames(url):
 
 if __name__ == "__main__":
     adb = Adb()
-    print(adb.getDumpsysSubCommandList())
+    print(adb.getWmDensity())
+    print(adb.getWmSize())
