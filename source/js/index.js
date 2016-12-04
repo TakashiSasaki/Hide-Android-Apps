@@ -34,11 +34,11 @@ function loadPackageDescription(k){
 }
 
 function index(){
-    var model = window.localStorage.getItem("model");
-    if (model != undefined) {
-        var input_element = document.getElementById("model");
-        input_element.value = model;
-    }
+    //var model = window.localStorage.getItem("model");
+    //if (model != undefined) {
+    //    var input_element = document.getElementById("model");
+    //    input_element.value = model;
+    //}
     setTimeout(requestJsonP, 1000, "getAdbVersion");
     setTimeout(requestJsonP, 1000, "getAdbPath");
 }
