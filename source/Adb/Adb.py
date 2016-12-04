@@ -208,6 +208,17 @@ class Adb:
                 pass
         return density
 
+    def getFirstDevice(self):
+        lines = self.exec(["devices"])
+        device_regex = re.compile("^(.+)\s+device$")
+        for line in lines:
+            try:
+                m = device_regex.match(line)
+                if m is not None:
+                    return m.group(1)
+            except Exception as e:
+                pass
+
 def fetchPackageNames(url):
     import urllib.request
     import http.client
@@ -231,3 +242,4 @@ if __name__ == "__main__":
     print(adb.getWmDensity())
     print(adb.getWmSize())
     print(adb.listProcesses())
+    print(adb.getFirstDevice())

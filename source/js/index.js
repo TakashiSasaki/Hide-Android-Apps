@@ -33,17 +33,6 @@ function loadPackageDescription(k){
     return "";
 }
 
-function index(){
-    //var model = window.localStorage.getItem("model");
-    //if (model != undefined) {
-    //    var input_element = document.getElementById("model");
-    //    input_element.value = model;
-    //}
-    setTimeout(requestJsonP, 1000, "getAdbVersion");
-    setTimeout(requestJsonP, 1000, "getAdbPath");
-}
-
-
 function hideCheckedPackages(table_element_id){
     var table_element = document.getElementById(table_element_id);
     for(var i = 0; i<table_element.children.length; ++i){
@@ -75,14 +64,5 @@ function requestJsonP(method_name, parameter_object, error_handler){
     requestJsonP2(script_src, error_handler);
 }
 
-function getAdbVersionCallback(s){
-    var input = document.getElementById("adb_version");
-    input.value = s;
-}
-
-function getAdbPathCallback(s){
-    var input = document.getElementById("adb_path");
-    input.value = s;
-}
-
-index();
+setTimeout(requestJsonP, 1000, "getAdbVersion");
+setTimeout(requestJsonP, 1000, "getAdbPath");

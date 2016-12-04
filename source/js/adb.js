@@ -44,3 +44,13 @@ function disablePackage(package_name){
 function disablePackageCallback(result_string){
     alert(result_string);
 }
+
+function getAdbVersionCallback(s){
+    var input = document.getElementById("adb_version");
+    input.value = s;
+}
+
+function getAdbPathCallback(s){
+    var input = document.getElementById("adb_path");
+    input.value = s;
+}
