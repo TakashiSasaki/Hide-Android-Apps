@@ -4,9 +4,10 @@ function updateSystemPackages(){
         table_element.removeChild(table_element.firstChild);
     }
     document.getElementById("number_of_system_packages").value = "updating";
-    var script_element = document.createlement("script");
-    script_element.src = "/?getSystemPackageList=1";
-    document.body.appendChild(script_element);
+    requestJsonP("getSystemPackageList");
+    //var script_element = document.createElement("script");
+    //script_element.src = "/?getSystemPackageList=1";
+    //document.body.appendChild(script_element);
 }
 
 function getSystemPackageListCallback(json_object){
