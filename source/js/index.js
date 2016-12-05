@@ -63,6 +63,3 @@ function requestJsonP(method_name, parameter_object, error_handler){
     }
     requestJsonP2(script_src, error_handler);
 }
-
-setTimeout(requestJsonP, 1000, "getAdbVersion");
-setTimeout(requestJsonP, 1000, "getAdbPath");
